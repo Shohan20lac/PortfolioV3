@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
     "\\src\\components",
     "\\src\\images"
   ],
+  "SelectedNode": "\\src\\components\\WelcomeText.js",
   "PreviewInSolutionExplorer": false
 }
