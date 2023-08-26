@@ -48,26 +48,37 @@
     border-radius: 5px;
 }
 
-.profile-pic-container{
+.profile-pic-container {
     display: flex;
+    flex-direction:column;
+    align-items: center;
+    
 }
 
-.profile-picture{
+.navbar-thumbnail {
     margin: calc(2vw);
     height: calc(20vw);
     width: calc(20vw);
 }
 
-h1, h3, h4, h5 {
+.navbar-header {
     font-family: "Roboto Condensed";
     font-size: calc(5.5vw);
+    margin-top: 10px;
 }
 
-h2 {
+.navbar-subheader {
     font-size: calc(4vw);
     font-weight: 400;
     margin: 0px;
 }
+
+.navbar-text {
+    font-size: calc(2vw);
+    font-weight: 200;
+    margin: 0px;
+}
+
 #topnav-header {
     padding-right: 10px;
     margin-bottom: 0px;
@@ -79,7 +90,7 @@ h2 {
     justify-content:center;
 }
 
-.socials-icon {
+.navbar-icon {
     height: calc(3vw);
     width:  calc(3vw);
     margin: calc(1vw);
@@ -88,4 +99,70 @@ h2 {
 .namecard {
     display: flex;
     flex-direction:column;
+}
+
+.skillset-container {
+    margin-top: 10px;
+}
+
+p {
+    color: white;
+}
+
+.typewriter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex:1;
+}
+
+
+
+.typewriter p {
+    border-right: 2px solid transparent;  /*Add a blinking cursor effect */
+    white-space: nowrap;  /*Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    animation: typewriter 1s steps(30) forwards;
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 400px) {
+     /*If viewport height is greater than 600px, override sizing based on viewport height */
+    .navbar-thumbnail {
+        height: calc(50px + 4vw);
+        width: calc(50px + 4vw);
+        transition: all .25s linear;
+    }
+
+    .navbar-icon {
+        height: calc(4px + 1.5vw);
+        width:  calc(4px + 1.5vw);
+        margin: calc(0.5px + 0.5vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-header {
+        font-size: calc(10px + 2vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-subheader {
+        font-size: calc(10px + 0.8vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-text {
+        font-size: calc(8px + 0.5vw);
+        transition: all .5s linear;
+    }
 }
