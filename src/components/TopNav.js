@@ -61,7 +61,7 @@ function NameCard() {
         <div className="namecard">
             <h1 className="navbar-header"    id="topnav-header"   > Shohan Mozid Rahman      </h1>
             <h2 className="navbar-subheader" id="topnav-subheader"> Engineer, Author, Artist </h2>
-            <h3 className="navbar-text"> BSc, CSE, Independendent University, Bangladesh</h3>
+            <h3 className="navbar-text">                            BSc, CSE, Independendent University, Bangladesh</h3>
             <SkillsIcons />
         </div>
     );
@@ -78,7 +78,12 @@ function SocialsContainer () {
     return (
         <div className = "socials-container">
             {socialIconUrls.map((url, index) => (
-                <img className="navbar-icon"key={index} src={url} alt={`${index}`} />
+                <img
+                    className="navbar-icon"
+                    key={index} 
+                    src={url} 
+                    alt={`${index}`}
+                />
             ))}
 
         </div>
@@ -89,7 +94,7 @@ function TopNav () {
     return (
         <div className="topnav-container">
 
-            <ImageContainer/>            
+            <ImageContainer/>
 
             <NameCard/>
             

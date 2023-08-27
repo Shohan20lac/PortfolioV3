@@ -46,6 +46,17 @@
     flex-direction: row;
     max-height: 20%;
     border-radius: 5px;
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 .profile-pic-container {
@@ -107,6 +118,7 @@
 
 p {
     color: white;
+    text-align:center;
 }
 
 .typewriter {
@@ -114,9 +126,8 @@ p {
     align-items: center;
     justify-content: center;
     flex:1;
+    flex-direction: column;
 }
-
-
 
 .typewriter p {
     border-right: 2px solid transparent;  /*Add a blinking cursor effect */
@@ -134,7 +145,6 @@ p {
         width: 100%;
     }
 }
-
 
 @media (min-width: 400px) {
      /*If viewport height is greater than 600px, override sizing based on viewport height */
