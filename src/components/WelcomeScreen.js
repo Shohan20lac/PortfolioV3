@@ -27,9 +27,7 @@ function WelcomeScreen(props) {
             <p> Choose a skill tree below to begin exploring.</p>
             <Buttons
                 flexDir="row"
-                goToEngineer = {props.goToEngineer}
-                goToAuthor   = {props.goToAuthor}
-                gotoArtist   = {props.gotoArtist}
+                changeScreen={props.changeScreen}
             />
         </div>
     );

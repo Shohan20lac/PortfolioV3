@@ -16,25 +16,15 @@ function Foreground() {
 
     const [currentScreen, setCurrentScreen] = useState("welcome");
 
-    const goToEngineer = () => {
-        setCurrentScreen("engineer");
-    };
-
-    const goToAuthor = () => {
-        setCurrentScreen("author");
-    };
-
-    const goToArtist = () => {
-        setCurrentScreen("artist");
+    const changeScreen = (screenName) => {
+        setCurrentScreen(screenName);
     };
 
     return (
         <p>
             {currentScreen === "welcome" &&
                 <WelcomeScreen
-                goToEngineer = {goToEngineer}
-                goToAuthor   = {goToAuthor}
-                goToArtist   = {goToArtist}
+                    changeScreen={changeScreen}
                 />}
             {currentScreen === "engineer" && <EngineerScreen/>}
             {currentScreen === "author"   && <AuthorScreen  />}
