@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+import { React, useState, useEffect } from 'react'
+import { useSpring, animated } from '@react-spring/web';
+
 import './App.css';
 import TopNav from './components/TopNav';
-import WelcomeScreen from './components/WelcomeText';
 import Foreground from './components/Foreground';
-import {React, useState, useEffect} from 'react'
+
 
 
 function App() {
