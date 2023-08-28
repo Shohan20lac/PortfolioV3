@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Buttons from './Buttons';
+
 import shohan from '../images/shohan.png';
 
 import github   from '../images/github.png';
@@ -55,13 +57,18 @@ function ImageContainer (flexDir) {
         </div>
     )
 }
-function NameCard() {
+function NameCard (props) {
 
     return (
         <div className="namecard">
             <h1 className="navbar-header"    id="topnav-header"   > Shohan Mozid Rahman      </h1>
-            <h2 className="navbar-subheader" id="topnav-subheader"> Engineer, Author, Artist </h2>
-            <h3 className="navbar-text">                            BSc, CSE, Independendent University, Bangladesh</h3>
+            {/*{<h2 className="navbar-subheader" id="topnav-subheader"> Engineer, Author, Artist </h2>}*/}
+            <Buttons
+                flexDir="row"
+                updateClickedButtons={props.updateClickedButtons}
+                setCurrentScreen={props.setCurrentScreen}
+            />
+            <h3 className="navbar-text"> BSc, CSE, Independendent University, Bangladesh</h3>
             <SkillsIcons />
         </div>
     );
@@ -90,13 +97,17 @@ function SocialsContainer () {
     )
 }
 
-function TopNav () {
+function TopNav(props) {
+
     return (
         <div className="topnav-container">
 
             <ImageContainer/>
 
-            <NameCard/>
+            <NameCard
+                updateClickedButtons = {props.handleButtonClick}
+                setCurrentScreen  = {props.setCurrentScreen}
+            />
             
             <SocialsContainer/>
 

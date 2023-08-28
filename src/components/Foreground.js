@@ -1,9 +1,10 @@
 import { React , useState }from 'react';
 import ReactDOM from 'react-dom/client';
-import WelcomeScreen from './WelcomeScreen';
+import WelcomeText from './WelcomeText';
 import EngineerScreen from './EngineerScreen';
 import AuthorScreen from './AuthorScreen';
 import ArtistScreen from './ArtistScreen';
+import Buttons from './Buttons';
 
 const screenModes = [
     "welcome",
@@ -12,23 +13,23 @@ const screenModes = [
     "artist"
 ]
 
-function Foreground() {
-
-    const [currentScreen, setCurrentScreen] = useState("welcome");
-
-    const changeScreen = (screenName) => {
-        setCurrentScreen(screenName);
-    };
+function Foreground (props) {
 
     return (
         <p>
-            {currentScreen === "welcome" &&
-                <WelcomeScreen
-                    changeScreen={changeScreen}
-                />}
-            {currentScreen === "engineer" && <EngineerScreen/>}
-            {currentScreen === "author"   && <AuthorScreen  />}
-            {currentScreen === "artist"   && <ArtistScreen  />}
+
+            <div className={`transition-container ${props.currentScreen !== 'welcome' ? 'fade-out' : ''}`}>
+                <WelcomeText
+                    updateClickedButtons={props.handleButtonClick}
+                    setCurrentScreen={props.setCurrentScreen}
+                />
+            </div>
+
+            {props.currentScreen === "engineer" && <EngineerScreen />}
+
+            {props.currentScreen === "author" && <AuthorScreen />}
+
+            {props.currentScreen === "artist" && <ArtistScreen />}
         </p>
     );
 }

@@ -45,7 +45,7 @@
     align-self: center;
     flex-direction: row;
     max-height: 20%;
-    border-radius: 5px;
+    border-radius: 8px;
     animation: slideIn 1s forwards;
 }
 
@@ -119,6 +119,7 @@
 p {
     color: white;
     text-align:center;
+    margin: 5px;
 }
 
 .typewriter {
@@ -130,6 +131,7 @@ p {
 }
 
 .typewriter p {
+    align-self: center;
     border-right: 2px solid transparent;  /*Add a blinking cursor effect */
     white-space: nowrap;  /*Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
@@ -172,7 +174,75 @@ p {
     }
 
     .navbar-text {
-        font-size: calc(8px + 0.5vw);
+        font-size: calc(20px + 0.5vw);
         transition: all .5s linear;
     }
+}
+
+.buttons-container {
+    position: relative;
+}
+
+.transition-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+
+.fade-out {
+    animation: concealAbove 0.3s forwards;
+}
+
+@keyframes concealAbove {
+    from {
+        max-height: 300px;
+    }
+
+    to {
+        max-height: 0px;
+    }
+}
+
+
+
+.top-nav-containerz {
+    visibility: 1; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+..top-nav-container.show {
+    opacity: 1; /* Show the TopNav */
+}
+
+.identity-button {
+    max-width: calc(20px + 8vw);
+    padding: 8px;
+    padding-top: calc(1.5vw);
+    border-radius: 10px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(1.5vw);
+}
+
+#engineer-button {
+    padding-right: 10px;
+    margin-right: 10px;
+    text-align: left;
+}
+#author-button {
+    text-align: center; 
+}
+
+#artist-button {
+    margin-left: 10px;
+    text-align: center;
+}
+
+
+.welcome-text {
+    display: flex;
+    justify-content: center;
 }

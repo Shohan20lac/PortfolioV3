@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState , useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 let identityTypes = [
@@ -7,10 +7,13 @@ let identityTypes = [
     "artist"
 ]
 
-function Buttons(props) {
+function Buttons (props) {
+
+    const [isSlidUp, setIsSlidUp] = useState(false);
 
     const handleButtonClick = (screenMode) => {
-        props.changeScreen(screenMode);
+        props.setCurrentScreen(screenMode);
+        setIsSlidUp(true);
     };
 
     return (
@@ -19,10 +22,16 @@ function Buttons(props) {
             {identityTypes.map((identity, index) => (
                 <button
                     key       = {index}
-                    className = "button"
-                    onClick   = {() => handleButtonClick(identity)}
+                    className="identity-button"
+                    id={`${identity}-button`}
+                    onClick = {
+                        () => {
+                            props.updateClickedButtons(identity);
+                            handleButtonClick(identity)
+                        }
+                    }
                 >
-                    {identity}
+                    {identity.charAt(0).toUpperCase() + identity.slice(1)}
                 </button>
             ))}
 

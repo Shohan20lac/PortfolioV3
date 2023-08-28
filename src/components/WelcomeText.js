@@ -19,18 +19,14 @@ async function animateParagraphs() {
     }
 }
 
-function WelcomeScreen(props) {
+function WelcomeText  (props) {
 
     return (
         <div className="typewriter">
             <p> Hi! Welcome to my portfolio website.<br/></p>
-            <p> Choose a skill tree below to begin exploring.</p>
-            <Buttons
-                flexDir="row"
-                changeScreen={props.changeScreen}
-            />
+            <p> Click on a tag above to start exploring.</p>
         </div>
     );
 }
 
-export default WelcomeScreen;
+export default WelcomeText;
