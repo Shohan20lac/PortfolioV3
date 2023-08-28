@@ -1,6 +1,11 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 
+let identityTypes = [
+    "engineer",
+    "author",
+    "artist"
+]
 
 function Buttons(props) {
 
@@ -10,12 +15,17 @@ function Buttons(props) {
 
     return (
         <div>
-            <button
-                className="button"
-                onClick={ () => handleButtonClick("engineer")}
-            >
-                Engineer
-            </button>
+
+            {identityTypes.map((identity, index) => (
+                <button
+                    key       = {index}
+                    className = "button"
+                    onClick   = {() => handleButtonClick(identity)}
+                >
+                    {identity}
+                </button>
+            ))}
+
         </div>
     )
     
