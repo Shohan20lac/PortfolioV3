@@ -302,6 +302,7 @@ p {
     color:            black;
     border-radius:    10px;
     margin-bottom:    10px;
+    height:           auto;
 }
 
 .card-content {
@@ -309,10 +310,11 @@ p {
     flex-direction: row;
 }
 
-
 .card-text-container {
     margin-left: 10px;
     text-align: left;
+    height: auto;
+    margin-top:0px;
 }
 
 .card-text-container p {
@@ -323,6 +325,15 @@ p {
 .card-text-container h3 {
     font-size: calc(4vw);
     text-align: left;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+.card-text-container h4 {
+    font-size: calc(2vw);
+    color: dimgrey;
+    text-align: center;
+    margin-top: 0px;
 }
 
 .card-thumbnail {
@@ -330,6 +341,7 @@ p {
     object-fit: contain; /* Maintain aspect ratio while fitting within the container */
     border-radius: 10px;
     align-self:center;
+    background-color: black;
 }
 
 @media (min-width: 600px) {
@@ -384,5 +396,49 @@ p {
     .background-text {
         font-size: 1.5vw;
         transition: all .2s linear;
+    }
+
+    .card-text-container p {
+        font-size:20px;
+    }
+
+    .card-text-container h3 {
+        font-size: 30px;
+    }
+}
+
+.accordion-section {
+    cursor: pointer;
+    transition: all .2s linear;
+    
+}
+
+.accordion-header {
+    color: white;
+    transition: all .2s linear;
+}
+
+.accordion-content-slideIn {
+    overflow: hidden;
+    animation: slideIn 0.3s ease-in-out; /* Adjust duration and easing as needed */
+}
+
+@keyframes slideIn {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 1000px; /* Set a value that's larger than the expected content height */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        max-height: 1000px;
+    }
+
+    to {
+        max-height: 0px; /* Set a value that's larger than the expected content height */
     }
 }
