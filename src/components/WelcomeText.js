@@ -23,8 +23,8 @@ function WelcomeText  (props) {
 
     return (
         <div className="typewriter">
-            <p> Hi! Welcome to my portfolio website.<br/></p>
-            <p> Click on a tag above to start exploring.</p>
+            <p className="background-text"> Hi! Welcome to my portfolio website.<br/></p>
+            <p className="background-text"> Click on a <button className="identity-button" id="myButton">Tag</button> above to start exploring.</p>
         </div>
     );
 }

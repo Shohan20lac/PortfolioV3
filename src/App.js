@@ -1,11 +1,8 @@
 import { React, useState, useEffect } from 'react'
-import { useSpring, animated } from '@react-spring/web';
 
 import './App.css';
 import TopNav from './components/TopNav';
 import Foreground from './components/Foreground';
-
-
 
 function App() {
 
@@ -56,13 +53,7 @@ function App() {
                     }
                 );
         }
-        console.log(screenMode);
     };
-
-    useEffect(() => {
-        console.log('Clicked buttons updated:', clickedButtons);
-    }, [clickedButtons]);
-
 
     const identityTypes = ["engineer", "author", "artist"];
 
@@ -72,6 +63,7 @@ function App() {
             <div className={`topnav-containerz ${showTopNav ? 'show' : ''}`}>
                 < TopNav
                     handleButtonClick = {handleButtonClick}
+                    currentScreen     = {currentScreen}
                     setCurrentScreen  = {setCurrentScreen}
                 />
             </div>

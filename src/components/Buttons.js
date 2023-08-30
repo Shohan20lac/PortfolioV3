@@ -20,10 +20,11 @@ function Buttons (props) {
         <div>
 
             {identityTypes.map((identity, index) => (
+
                 <button
-                    key       = {index}
-                    className="identity-button"
-                    id={`${identity}-button`}
+                    key={index}
+                    className={`identity-button`}
+                    id={`${identity}-button-${props.currentScreen === identityTypes[index] ? 'pressed': ''}`}
                     onClick = {
                         () => {
                             props.updateClickedButtons(identity);

@@ -38,7 +38,7 @@ function SkillsIcons (flexDirection) {
     return (
         <div style={divStyle} className="skillset-container">
             {iconList.map((url, index) => (
-                <img class="navbar-icon" key={index} src={url} alt={`${index}`} />
+                <img className="navbar-icon" key={index} src={url} alt={`${index}`} />
             ))}
         </div>
     )
@@ -62,11 +62,11 @@ function NameCard (props) {
     return (
         <div className="namecard">
             <h1 className="navbar-header"    id="topnav-header"   > Shohan Mozid Rahman      </h1>
-            {/*{<h2 className="navbar-subheader" id="topnav-subheader"> Engineer, Author, Artist </h2>}*/}
             <Buttons
                 flexDir="row"
-                updateClickedButtons={props.updateClickedButtons}
-                setCurrentScreen={props.setCurrentScreen}
+                updateClickedButtons= {props.updateClickedButtons}
+                currentScreen       = {props.currentScreen}
+                setCurrentScreen    = {props.setCurrentScreen}
             />
             <h3 className="navbar-text"> BSc, CSE, Independendent University, Bangladesh</h3>
             <SkillsIcons />
@@ -105,8 +105,9 @@ function TopNav(props) {
             <ImageContainer/>
 
             <NameCard
+                currentScreen        = {props.currentScreen}
                 updateClickedButtons = {props.handleButtonClick}
-                setCurrentScreen  = {props.setCurrentScreen}
+                setCurrentScreen     = {props.setCurrentScreen}
             />
             
             <SocialsContainer/>

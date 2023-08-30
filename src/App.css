@@ -85,7 +85,7 @@
 }
 
 .navbar-text {
-    font-size: calc(2vw);
+    font-size: calc(1.5px + 2vw);
     font-weight: 200;
     margin: 0px;
 }
@@ -117,9 +117,20 @@
 }
 
 p {
-    color: white;
+    color: black;
     text-align:center;
     margin: 5px;
+}
+
+.background-text {
+    font-size: calc(3vw);
+    color:white;
+    margin: 10px;
+    margin-bottom:20px;
+}
+
+.topheader {
+    margin:0px;
 }
 
 .typewriter {
@@ -148,6 +159,47 @@ p {
     }
 }
 
+.identity-button {
+    max-width: calc(20px + 10vw);
+    padding: 8px;
+    padding-top: calc(1.5vw);
+    border-radius: 10px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(2.5vw);
+}
+.identity-button:hover {
+    border: blue solid 1px;
+}
+.identity-button:active {
+    color: white;
+    background-color: blue;
+}
+
+#engineer-button {
+    padding-right: 10px;
+    margin-right: 10px;
+    text-align: left;
+}
+#engineer-button:active {
+    background-color: blue
+}
+#engineer-button-pressed {
+    background-color: lightskyblue;
+    color: black;
+}
+
+
+#author-button {
+    text-align: center; 
+}
+
+#artist-button {
+    margin-left: 10px;
+    text-align: center;
+}
+
 @media (min-width: 400px) {
      /*If viewport height is greater than 600px, override sizing based on viewport height */
     .navbar-thumbnail {
@@ -174,8 +226,11 @@ p {
     }
 
     .navbar-text {
-        font-size: calc(20px + 0.5vw);
+        font-size: calc(10px + 0.6vw);
         transition: all .5s linear;
+    }
+    .identity-button {
+        font-size: calc(2vw);
     }
 }
 
@@ -189,7 +244,6 @@ p {
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
 }
-
 
 .fade-out {
     animation: concealAbove 0.3s forwards;
@@ -205,8 +259,6 @@ p {
     }
 }
 
-
-
 .top-nav-containerz {
     visibility: 1; /* Initially hidden */
     transition: opacity 0.5s ease-in-out;
@@ -216,33 +268,121 @@ p {
     opacity: 1; /* Show the TopNav */
 }
 
-.identity-button {
-    max-width: calc(20px + 8vw);
-    padding: 8px;
-    padding-top: calc(1.5vw);
-    border-radius: 10px;
-    border: none;
-    justify-content: center;
-    align-items: center;
-    font-size: calc(1.5vw);
-}
-
-#engineer-button {
-    padding-right: 10px;
-    margin-right: 10px;
-    text-align: left;
-}
-#author-button {
-    text-align: center; 
-}
-
-#artist-button {
-    margin-left: 10px;
-    text-align: center;
-}
-
 
 .welcome-text {
     display: flex;
     justify-content: center;
+}
+
+
+#myButton {
+    display: inline-block; /* Make the button inline with text */
+    padding: 8px 16px; /* Add padding for better visual appearance */
+    border: none;
+    cursor: pointer;
+}
+
+.experiences-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centered {
+    text-align: center;
+}
+.content-card {
+    display:          flex;
+    flex-direction:   column;
+    flex:             1;
+    align-items:      center;
+    height:           calc(40vw);
+    width:            100%;
+    background-color: white;
+    color:            black;
+    border-radius:    10px;
+    margin-bottom:    10px;
+}
+
+.card-content {
+    display:flex;
+    flex-direction: row;
+}
+
+
+.card-text-container {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.card-text-container p {
+    font-size: calc(3vw);
+    text-align: left;
+}
+
+.card-text-container h3 {
+    font-size: calc(4vw);
+    text-align: left;
+}
+
+.card-thumbnail {
+    width: 40%;
+    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
+    border-radius: 10px;
+    align-self:center;
+}
+
+@media (min-width: 600px) {
+    .background-text {
+        font-size: calc(2.2vw);
+        margin: calc(4vw);
+        transition: all .1s linear;
+    }
+    
+    .content-card {
+        margin: 2vw;
+        transition: all .1s linear;
+    }
+    .card-content {
+        flex-direction: column;
+        transition: all .1s linear;
+    }
+
+    .experiences-container {
+        flex-direction: row;
+        transition: all .25s linear;
+        margin-left: 8vw;
+        margin-right: 8vw;
+    }
+
+    .card-text-container p {
+        font-size: calc(2vw);
+        text-align: left;
+    }
+
+    .card-text-container h3 {
+        font-size: calc(3vw);
+        text-align: center;
+    }
+
+    .card-thumbnail {
+        width: unset;
+        max-height: 100px;
+        border-radius: 61px;
+        transition: all 2s linear;
+    }
+}
+
+@media (min-width: 800px) {
+    .background-text {
+        font-size: calc(2vw);
+        transition: all .1s linear;
+    }
+}
+
+@media (min-width: 1000px){
+    .background-text {
+        font-size: 1.5vw;
+        transition: all .2s linear;
+    }
 }
