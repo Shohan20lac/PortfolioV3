@@ -2,6 +2,11 @@ import { React, useState } from 'react';
 import ContentCard from './ContentCard';
 import Experiences from './Experiences';
 
+const experienceCategories = [
+    "academic",
+    "professional"
+]
+
 function EngineerScreen(props) {
 
     return (
@@ -11,9 +16,15 @@ function EngineerScreen(props) {
                 needs. <br /> <br /> Since my recent experiences in software engineering and ML engineering, I am motivated to dedicate
             myself full-time to the world of Data Science, Software Development and DevOps engineering. </p>
 
-            <h3 className="background-text topheader"> Academic Experiences </h3>
+           
+            <h3 className="background-text topheader"> Academic Experience </h3>
+            <Experiences category="academic" />
 
-            <Experiences category="Academic Experiences"/>
+
+            <h3 className="background-text topheader"> Professional Experience </h3>
+            <Experiences category="professional" />
+
+
         </>
     );
 }
