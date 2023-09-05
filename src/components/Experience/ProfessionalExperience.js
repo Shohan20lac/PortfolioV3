@@ -1,8 +1,8 @@
 import { React, useState } from 'react';
-import ContentCard from './ContentCard';
+import ContentCard from '../Experience/ContentCard';
 
-import chaldal from '../images/chaldal.jpg';
-import altersense from '../images/altersense.png';
+import chaldal from '../../images/chaldal.jpg';
+import altersense from '../../images/altersense.png';
 
 let professionalIntros = [
     "Collaborated with world class fullstack framework developers and experts of functional programming Paradigms. A masterclass in F#/ C# codebases that transpile into React components and .NET Actors.",

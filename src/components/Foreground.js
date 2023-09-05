@@ -1,10 +1,10 @@
 import { React , useState }from 'react';
 import ReactDOM from 'react-dom/client';
 import WelcomeText from './WelcomeText';
-import EngineerScreen from './EngineerScreen';
-import AuthorScreen from './AuthorScreen';
-import ArtistScreen from './ArtistScreen';
-import Buttons from './Buttons';
+import EngineerScreen from './Route/EngineerScreen';
+import AuthorScreen from './Route/AuthorScreen';
+import ArtistScreen from './Route/ArtistScreen';
+import Buttons from './Input/Buttons';
 
 const screenModes = [
     "welcome",

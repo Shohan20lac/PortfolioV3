@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import CardIntro from './CardIntro'
 import cse from '../images/cse.jpg';
 
 function CardText (props) {

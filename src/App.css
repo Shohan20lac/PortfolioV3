@@ -410,17 +410,25 @@ p {
 .accordion-section {
     cursor: pointer;
     transition: all .2s linear;
-    
+    color: white;
 }
 
 .accordion-header {
     color: white;
     transition: all .2s linear;
+    font-weight: bold;
 }
 
 .accordion-content-slideIn {
     overflow: hidden;
+    max-height: 1000px;
     animation: slideIn 0.3s ease-in-out; /* Adjust duration and easing as needed */
+}
+
+.accordion-content-slideOut {
+    overflow: hidden;
+    max-height: 0;
+    animation: slideOut 0.8s ease-in-out; /* Adjust duration and easing as needed */
 }
 
 @keyframes slideIn {

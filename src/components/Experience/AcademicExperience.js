@@ -1,7 +1,7 @@
 import { React } from 'react';
-import ContentCard from './ContentCard';
-import cse from '../images/cse.jpg';
-import ai from '../images/ai.jpg';
+import ContentCard from '../Experience/ContentCard';
+import cse from '../../images/cse.jpg';
+import ai from '../../images/ai.jpg';
 
 let academicIntros = [
     "Favorite Courses: Linear Algebra, OOP, Database Management, Web Application.",

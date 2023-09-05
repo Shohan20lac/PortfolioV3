@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Buttons from './Buttons'
+import Buttons from './Input/Buttons'
 
 async function typeText(element) {
     const content = element.innerHTML;

@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Buttons from './Buttons';
+import Buttons from '../Input/Buttons';
 
 import shohan from '../images/shohan.png';
 
-import github   from '../images/github.png';
-import linkedIn from '../images/linkedin.png';
-import facebook from '../images/facebook.png';
-import spotify  from '../images/spotify.png';
+import github   from '../../images/github.png';
+import linkedIn from '../../images/linkedin.png';
+import facebook from '../../images/facebook.png';
+import spotify  from '../../images/spotify.png';
 
-import react  from '../images/react.png';
-import python from '../images/python.png';
-import fsharp from '../images/fsharp.png';
+import react  from '../../images/react.png';
+import python from '../../images/python.png';
+import fsharp from '../../images/fsharp.png';
 
 function SkillsIcons (flexDirection) {
     const iconList = [
