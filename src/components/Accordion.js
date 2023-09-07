@@ -1,17 +1,24 @@
-import { React, useState, useRef } from 'react';
+import { React, useState, useEffect, useRef } from 'react';
 
-import AcademicExperience from './AcademicExperience';
-import ProfessionalExperience from './ProfessionalExperience';
+import AcademicExperience from './Experience/AcademicExperience';
+import ProfessionalExperience from './Experience/ProfessionalExperience';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const AccordionSection = (props) => {
     const [visible, setVisible] = useState(props.expanded);
+    const sectionRef = useRef(null);
+    useEffect(() => {
+        if (visible && sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [visible]);
 
     const toggleVisibility = () => {
         setVisible(!visible);
     };
+
 
     return (
         <div className = "accordion-section"
@@ -65,8 +72,11 @@ const Accordion = (props) => {
 
 
     const sectionRef = useRef(null);
-    const scrollToSection = () => {
-        sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const scrollToSection = (elementRef ) => {
+        sectionRef.current.scrollTo({
+            behavior: 'smooth',
+            block: 'center'
+        });
     };
 
     return (
@@ -79,9 +89,6 @@ const Accordion = (props) => {
                 onToggle={() => toggleSection('section1')}
                 sectionRef={sectionRef}
                 scrollToSection={scrollToSection}
-                onClick={() => {
-                    scrollToSection()
-                } }
             />
             
             <AccordionSection

@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import ContentCard from '../Experience/ContentCard';
+import ContentCard from '../Card/ContentCard';
 
 import chaldal from '../../images/chaldal.jpg';
 import altersense from '../../images/altersense.png';

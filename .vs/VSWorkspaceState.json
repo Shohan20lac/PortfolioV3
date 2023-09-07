@@ -3,8 +3,12 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\images"
+    "\\src\\components\\Card",
+    "\\src\\components\\Experience",
+    "\\src\\components\\Input",
+    "\\src\\components\\Nav",
+    "\\src\\components\\Route"
   ],
-  "SelectedNode": "\\src\\components\\AcademicExperience.js",
+  "SelectedNode": "\\src\\paths.js",
   "PreviewInSolutionExplorer": false
 }

@@ -1,61 +1,38 @@
 import { React, useState, useEffect } from 'react'
 
 import './App.css';
-import TopNav from './components/TopNav';
+import TopNav from './components/Nav/TopNav';
 import Foreground from './components/Foreground';
+
+import { star, heart, hand, plane, lightning, note } from "./paths";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { getIndex, useFlubber } from "./paths";
+
+const paths = [lightning, hand, plane, heart, note, star, lightning];
+const colors = [
+    "#00cc88",
+    "#0099ff",
+    "#8855ff",
+    "#ff0055",
+    "#ee4444",
+    "#ffcc00",
+    "#00cc88"
+];
 
 function App() {
 
     const [showTopNav, setShowTopNav]         = useState(false);
     const [currentScreen, setCurrentScreen]   = useState('welcome');
-    const [clickedButtons, setClickedButtons] = useState({
-        engineer: false,
-        author: false,
-        artist: false
-    });
+    const [clickedButton, setClickedButton]   = useState  (null);
 
 
     const handleButtonClick = (screenMode) => {
-        switch (screenMode) {
-            case ("engineer"):
-                setClickedButtons(
-                    {
-                        engineer: true,
-                        author: false,
-                        artist: false
-                    }
-                );
-                break;
-            case ("author"):
-                setClickedButtons(
-                    {
-                        engineer: false,
-                        author: true,
-                        artist: false
-                    }
-                );
-                break;
-            case ("artist"):
-                setClickedButtons(
-                    {
-                        engineer: false,
-                        author: false,
-                        artist: true
-                    }
-                );
-                break;
-            default:
-                setClickedButtons(
-                    {
-                        engineer: false,
-                        author: false,
-                        artist: false
-                    }
-                );
-        }
+        setClickedButton (screenMode)
     };
 
     const identityTypes = ["engineer", "author", "artist"];
+
+    
 
     return (
         <div className="App-header">
@@ -71,11 +48,13 @@ function App() {
             <Foreground
                 currentScreen     = {currentScreen}
                 setCurrentScreen  = {setCurrentScreen}
-                clickedButtons    = {clickedButtons}
-                setClickedButtons = {setClickedButtons}
+                clickedButtons    = {clickedButton}
+                setClickedButtons={setClickedButton}
                 handleButtonClick = {handleButtonClick}
                 identityTypes     = {identityTypes}
             />
+
+            
 
         </div>
     );

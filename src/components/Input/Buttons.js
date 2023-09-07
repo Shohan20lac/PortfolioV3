@@ -27,7 +27,7 @@ function Buttons (props) {
                     id={`${identity}-button-${props.currentScreen === identityTypes[index] ? 'pressed': ''}`}
                     onClick = {
                         () => {
-                            props.updateClickedButtons(identity);
+                            props.updateClickedButton(identity);
                             handleButtonClick(identity)
                         }
                     }

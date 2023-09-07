@@ -6,6 +6,9 @@ import AuthorScreen from './Route/AuthorScreen';
 import ArtistScreen from './Route/ArtistScreen';
 import Buttons from './Input/Buttons';
 
+import { motion } from "framer-motion"
+
+
 const screenModes = [
     "welcome",
     "engineer",
@@ -16,21 +19,22 @@ const screenModes = [
 function Foreground (props) {
 
     return (
-        <p>
-
-            <div className={`transition-container ${props.currentScreen !== 'welcome' ? 'fade-out' : ''}`}>
-                <WelcomeText
-                    updateClickedButtons={props.handleButtonClick}
-                    setCurrentScreen={props.setCurrentScreen}
-                />
-            </div>
+        <div className ="foreground">
+            <motion.div
+                className = {`transition-container ${props.currentScreen !== 'welcome' ? 'fade-out' : ''}`}
+                initial   = {{ x: 0, opacity: 0, scale: 0.8 }}
+                animate   = {{ x: 0, opacity: 1, scale: 1 }}
+                transition= {{ duration: 1 }}
+            >
+                <WelcomeText/>
+            </motion.div>
 
             {props.currentScreen === "engineer" && <EngineerScreen />}
 
             {props.currentScreen === "author" && <AuthorScreen />}
 
             {props.currentScreen === "artist" && <ArtistScreen />}
-        </p>
+        </div>
     );
 }
 

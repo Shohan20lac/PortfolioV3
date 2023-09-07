@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import cse from '../images/cse.jpg';
+import cse from '../../images/cse.jpg';
 
 function CardText (props) {
 

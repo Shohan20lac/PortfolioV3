@@ -1,11 +1,11 @@
 import { React } from 'react';
-import ContentCard from '../Experience/ContentCard';
+import ContentCard from '../Card/ContentCard';
 import cse from '../../images/cse.jpg';
 import ai from '../../images/ai.jpg';
 
 let academicIntros = [
-    "Favorite Courses: Linear Algebra, OOP, Database Management, Web Application.",
-    "Targeted Study of data-driven disciplines. Minor courses: Artificial Intelligence, Machine Learning, Data Mining, Instrumentation, Robotics. Data Mining was my favorite."
+    "Most sustantial projects in OOP, Database Management, Web Applications.",
+    "Using Python and numpy to solve large-scale problems in Machine Learning, Data Mining, Instrumentation and Robotics."
 ]
 function AcademicExperience(props) {
 
