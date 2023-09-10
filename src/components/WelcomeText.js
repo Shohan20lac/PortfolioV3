@@ -20,7 +20,7 @@ function TypewriterText({ text }) {
 
 const TypewriterEffect = ({ text }) => {
     const [visibleText, setVisibleText] = useState("");
-    const [textIndex, setTextIndex] = useState(0);
+    const [textIndex, setTextIndex]     = useState(0);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -49,7 +49,6 @@ const TypewriterEffect = ({ text }) => {
     );
 };
 
-
 function WelcomeText(props) {
     const elements = [
         { text: "Hi! Welcome to my portfolio website.", delay: 2000 },
@@ -70,7 +69,7 @@ function WelcomeText(props) {
             setShowTypewriter(true);
         }
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout (timer);
     }, [currentIndex, elements]);
 
     const filteredElements = elements.filter((_, index) => index <= currentIndex);
@@ -79,11 +78,7 @@ function WelcomeText(props) {
         <div className="typewriter foreground-content">
             {filteredElements.map((element, index) => (
                 <span key={index}>
-                    {element.component ? (
-                        element.component
-                    ) : (
-                        <TypewriterText text={element.text} />
-                    )}
+                    <TypewriterText text={element.text} />
                 </span>
             ))}
         </div>

@@ -1,164 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Tektur&display=swap');
 
-.App {
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-    background-color: rgb(45, 49, 84);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: calc(10px + 2vmin);
-    color: black;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.topnav-container {
-    display: flex;
-    background-color: white;
-    align-self: center;
-    flex-direction: row;
-    max-height: 20%;
-    border-radius: 8px;
-    animation: slideIn 1s forwards;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-100%);
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
-.profile-pic-container {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    
-}
-
-.navbar-thumbnail {
-    margin: calc(2vw);
-    height: calc(20vw);
-    width: calc(20vw);
-}
-
-.navbar-header {
-    font-family: "Roboto Condensed";
-    font-size: calc(5.5vw);
-    margin-top: 10px;
-}
-
-.navbar-subheader {
-    font-size: calc(4vw);
-    font-weight: 400;
-    margin: 0px;
-}
-
-.navbar-text {
-    font-size: calc(1.5px + 2vw);
-    font-weight: 200;
-    margin: 0px;
-}
-
-#topnav-header {
-    padding-right: 10px;
-    margin-bottom: 0px;
-}
-
-.socials-container {
-    display:flex;
-    flex-direction:row;
-    justify-content:flex-start;
-}
-
-.socials-container popup {
-    display: none;
-}
-
-.socials-container popup {
-    display: none;
-}
-
-.icon-container {
-    position: relative; /* Position the container relative to itself */
-    display: inline-block; /* To allow positioning */
-    margin: 0;
-}
-
-.tooltip {
-    visibility: hidden; /* Initially hide the tooltip */
-    position: absolute;
-    top: 100%; /* Position it below the icon */
-    left: 0%; /* Center it horizontally */
-    background-color: #333;
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    font-size: calc(1.2vw);
-}
-
-.icon-container:hover .tooltip {
-    visibility: visible; /* Show the tooltip on hover */
-    opacity: 1;
-}
-
-.icon-container:hover {
-    border: black 1px solid;
-    border-radius: 80%;
-    opacity: 1;
-    transition: opacity 0.3s ease-in;
-}
-
-.navbar-icon {
-    height: calc(3vw);
-    width:  calc(3vw);
-    margin: calc(0.5vw);
-}
-
-.namecard {
-    display: flex;
-    flex-direction:column;
-}
-
-.skillset-container {
-    margin-top: 10px;
-}
-
 p {
     color: black;
     text-align:center;
@@ -170,10 +11,7 @@ p {
     font-family: 'Roboto Condensed';
 }
 
-.section-header-container {
 
-    margin-bottom: 0px;
-}
 
 .subtitle {
     font-weight:100;
@@ -213,10 +51,7 @@ p {
     justify-content: center;
     flex: 1;
     flex-direction: column;
-    
 }
-
-
 
 @keyframes typewriter-top {
     from {
@@ -237,12 +72,6 @@ p {
         width: 100%;
     }
 }
-
-.foreground {
-    margin-left: calc(14vw);
-    margin-right: calc(14vw);
-}
-
 
 .identity-button {
     max-width: calc(20px + 10vw);
@@ -294,40 +123,7 @@ p {
     text-align: center;
 }
 
-@media (min-width: 400px) {
-     /*If viewport height is greater than 600px, override sizing based on viewport height */
-    .navbar-thumbnail {
-        height: calc(50px + 4vw);
-        width: calc(50px + 4vw);
-        transition: all .25s linear;
-    }
 
-    .navbar-icon {
-        height: calc(1.5vw);
-        width:  calc(1.5vw);
-        margin-left: calc(0.5px + 0.5vw);
-        margin-right: calc(0.5px + 0.5vw);
-        transition: all .5s linear;
-    }
-
-    .navbar-header {
-        font-size: calc(10px + 2vw);
-        transition: all .5s linear;
-    }
-
-    .navbar-subheader {
-        font-size: calc(10px + 0.8vw);
-        transition: all .5s linear;
-    }
-
-    .navbar-text {
-        font-size: calc(10px + 0.6vw);
-        transition: all .5s linear;
-    }
-    .identity-button {
-        font-size: calc(2vw);
-    }
-}
 
 .buttons-container {
     position: relative;
@@ -353,16 +149,6 @@ p {
         max-height: 0px;
     }
 }
-
-.top-nav-containerz {
-    visibility: 1; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out;
-}
-
-..top-nav-container.show {
-    opacity: 1; /* Show the TopNav */
-}
-
 
 .welcome-text {
     display: flex;
@@ -464,8 +250,6 @@ p {
     animation: slideOut 0.8s ease-in-out; /* Adjust duration and easing as needed */
 }
 
-
-
 @keyframes slideIn {
     from {
         max-height: 0;
@@ -559,18 +343,19 @@ p {
 .sort-cards-container {
     margin-top: 50px;
     display: flex; /* Display cards in a row */
-    justify-content: space-between; /* Spacing between cards */
-    width: 100%; /* Span the whole width of the viewport */
+    justify-content: center; /* Spacing between cards */
+    align-items: center; /* Spacing between cards */
+    width: 80%; /* Span the whole width of the viewport */
+    gap: 60px;
 }
 
 .sort-card-container {
     flex: 1; /* Distribute space evenly among cards */
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
     max-width: 250px; /* Set maximum width for each card */
-    margin: 10px; /* Add some margin for spacing */
+    margin: 10px; 
 }
 
 .sort-card {
@@ -601,3 +386,172 @@ p {
     margin-top: 10px; /* Add spacing between image and label */
     color:white;
 }
+
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width:  100%;
+    background: #000000e1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: clamp(50%, 700px, 90%);
+    height: min(50%, 300px);
+
+    margin: auto;
+    padding: 0 2rem;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: white;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-left {
+    flex: 1
+}
+
+.modal-right {
+    flex: 2
+}
+
+.modal-text {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.mech-button {
+    position: relative;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s;
+}
+
+.mech-button:hover {
+    letter-spacing: 0.2rem;
+    padding: 1.1rem 3.1rem;
+    background: var(--clr);
+    /* box-shadow: 0 0 35px var(--clr); */
+    animation: box 3s infinite;
+}
+
+.mech-button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+}
+
+.mech-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.mech-button i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.mech-button i::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 80%;
+    top: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+}
+
+.mech-button:hover i::before {
+    width: 15px;
+    left: 20%;
+    animation: move 3s infinite;
+}
+
+.mech-button i::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    left: 20%;
+    bottom: -2px;
+    border: 2px solid var(--clr);
+    background: #272822;
+    transition: 0.2s;
+}
+
+.mech-button:hover i::after {
+    width: 15px;
+    left: 80%;
+    animation: move 3s infinite;
+
+}
+
+.mech-button:active {
+    background: white;
+    color: black;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.foreground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.section-header-container {
+    margin-left: calc(14vw);
+    margin-right: calc(14vw);
+    margin-bottom: 0px;
+}
+

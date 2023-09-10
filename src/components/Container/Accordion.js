@@ -1,8 +1,5 @@
 import { React, useState, useEffect, useRef } from 'react';
 
-import AcademicExperience from './Experience/AcademicExperience';
-import ProfessionalExperience from './Experience/ProfessionalExperience';
-
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -83,7 +80,7 @@ const Accordion = (props) => {
         <div className="accordion">
             <AccordionSection
                 title="Academic Experience"
-                content={<AcademicExperience />}
+                content={<>Placeholder Content</>}
                 expanded={expandedSections.has('section1')}
                 stopPropagation={(event) => event.stopPropagation()}
                 onToggle={() => toggleSection('section1')}
@@ -93,7 +90,7 @@ const Accordion = (props) => {
             
             <AccordionSection
                 title="Professional Experience"
-                content  = {<ProfessionalExperience/>}
+                content={<>Placeholder Content</>}
                 expanded={expandedSections.has('section2')}
                 stopPropagation={(event) => event.stopPropagation()} // Add this prop
                 onToggle={() => toggleSection('section2')}

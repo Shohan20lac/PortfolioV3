@@ -1,0 +1,174 @@
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: rgb(45, 49, 84);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: calc(10px + 2vmin);
+    color: black;
+}
+
+.topnav-container {
+    display: flex;
+    background-color: white;
+    align-self: center;
+    flex-direction: row;
+    max-height: 20%;
+    border-radius: 8px;
+    animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.profile-pic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-thumbnail {
+    margin: calc(2vw);
+    height: calc(20vw);
+    width: calc(20vw);
+}
+
+.navbar-header {
+    font-family: "Roboto Condensed";
+    font-size: calc(5.5vw);
+    margin-top: 10px;
+}
+
+.navbar-subheader {
+    font-size: calc(4vw);
+    font-weight: 400;
+    margin: 0px;
+}
+
+.navbar-text {
+    font-size: calc(1.5px + 2vw);
+    font-weight: 200;
+    margin: 0px;
+}
+
+#topnav-header {
+    padding-right: 10px;
+    margin-bottom: 0px;
+}
+
+.socials-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+    .socials-container popup {
+        display: none;
+    }
+
+    .socials-container popup {
+        display: none;
+    }
+
+.icon-container {
+    position: relative; /* Position the container relative to itself */
+    display: inline-block; /* To allow positioning */
+    margin: 0;
+}
+
+.tooltip {
+    visibility: hidden; /* Initially hide the tooltip */
+    position: absolute;
+    top: 100%; /* Position it below the icon */
+    left: 0%; /* Center it horizontally */
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    font-size: calc(1.2vw);
+}
+
+.icon-container:hover .tooltip {
+    visibility: visible; /* Show the tooltip on hover */
+    opacity: 1;
+}
+
+.icon-container:hover {
+    border: black 1px solid;
+    border-radius: 80%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.navbar-icon {
+    height: calc(3vw);
+    width: calc(3vw);
+    margin: calc(0.5vw);
+}
+
+.namecard {
+    display: flex;
+    flex-direction: column;
+}
+
+.skillset-container {
+    margin-top: 10px;
+}
+
+@media (min-width: 400px) {
+    /*If viewport height is greater than 600px, override sizing based on viewport height */
+    .navbar-thumbnail {
+        height: calc(50px + 4vw);
+        width: calc(50px + 4vw);
+        transition: all .25s linear;
+    }
+
+    .navbar-icon {
+        height: calc(1.5vw);
+        width: calc(1.5vw);
+        margin-left: calc(0.5px + 0.5vw);
+        margin-right: calc(0.5px + 0.5vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-header {
+        font-size: calc(10px + 2vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-subheader {
+        font-size: calc(10px + 0.8vw);
+        transition: all .5s linear;
+    }
+
+    .navbar-text {
+        font-size: calc(10px + 0.6vw);
+        transition: all .5s linear;
+    }
+
+    .identity-button {
+        font-size: calc(2vw);
+    }
+}

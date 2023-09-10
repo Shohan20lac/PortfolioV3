@@ -1,30 +1,26 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 
 import './App.css';
+import './styles/topnavStyles.css';
 import TopNav from './components/Nav/TopNav';
 import Foreground from './components/Foreground';
 
-import { star, heart, hand, plane, lightning, note } from "./paths";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { getIndex, useFlubber } from "./paths";
+import Modal from './components/Overlay/Modal';
 
-const paths = [lightning, hand, plane, heart, note, star, lightning];
-const colors = [
-    "#00cc88",
-    "#0099ff",
-    "#8855ff",
-    "#ff0055",
-    "#ee4444",
-    "#ffcc00",
-    "#00cc88"
-];
+import socials from './utilities/Socials'
 
 function App() {
+    const [modalIndex, setModalIndex] = useState (null);
+    const openModal = (index) => {
+        setModalIndex (index);
+    }
+    const closeModal = () => {
+        setModalIndex (null);
+    }
 
-    const [showTopNav, setShowTopNav]         = useState(false);
-    const [currentScreen, setCurrentScreen]   = useState('welcome');
-    const [clickedButton, setClickedButton]   = useState  (null);
-
+    const [showTopNav, setShowTopNav]         = useState (false);
+    const [currentScreen, setCurrentScreen]   = useState ('welcome');
+    const [clickedButton, setClickedButton]   = useState (null);
 
     const handleButtonClick = (screenMode) => {
         setClickedButton (screenMode)
@@ -32,16 +28,20 @@ function App() {
 
     const identityTypes = ["engineer", "author", "artist"];
 
-    
+    console.log (modalIndex)
 
     return (
         <div className="App-header">
 
             <div className={`topnav-containerz ${showTopNav ? 'show' : ''}`}>
-                < TopNav
-                    handleButtonClick = {handleButtonClick}
-                    currentScreen     = {currentScreen}
-                    setCurrentScreen  = {setCurrentScreen}
+                <TopNav
+                    handleButtonClick={handleButtonClick}
+                    currentScreen={currentScreen}
+                    setCurrentScreen={setCurrentScreen}
+                    socials={socials}
+                    modalIndex={modalIndex}
+                    openModal={openModal }
+                    closeModal={closeModal}
                 />
             </div>
 
@@ -54,7 +54,14 @@ function App() {
                 identityTypes     = {identityTypes}
             />
 
-            
+            {modalIndex !== null && 
+                <Modal
+                modalOpen={modalIndex}
+                handleClose={closeModal}
+                modalContent={socials[modalIndex]}
+
+                />
+            } 
 
         </div>
     );

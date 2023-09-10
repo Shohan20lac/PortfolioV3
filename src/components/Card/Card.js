@@ -4,7 +4,7 @@ import { useSpring} from 'react-spring';
 import { motion } from 'framer-motion';
 
 
-function ContentCard(props) {
+function Card (props) {
     const [flipped, set] = useState(false)
 
     const { transform, opacity } = useSpring({
@@ -67,4 +67,4 @@ function ContentCard(props) {
     );
 }
 
-export default ContentCard;
+export default Card;

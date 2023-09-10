@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-function ExpandingCard({ images, subtitle }) {
+function MenuCard({ images, subtitle, handleClick }) {
     const [imageIndex, setImageIndex] = useState(0);
     const [isHovered, setIsHovered] = useState (false);
 
@@ -13,13 +13,13 @@ function ExpandingCard({ images, subtitle }) {
                 setImageIndex ((prevIndex) =>
                     (prevIndex + 1) % images.length
                 );
-            }, 1000); // Change image every 3 seconds
+            }, 1000);
         } else {
-            clearInterval(interval); // Clear the interval when not hovered
+            clearInterval(interval);
         }
 
         return () => {
-            clearInterval(interval); // Cleanup the interval on unmount or state change
+            clearInterval(interval);
         };
 
 
@@ -38,8 +38,9 @@ function ExpandingCard({ images, subtitle }) {
                     stiffness: 400, damping: 10
                 }
             }
-            onMouseEnter={() => setIsHovered(true)} // Start slideshow on hover
-            onMouseLeave={() => setIsHovered(false)} // Stop slideshow when not hovering
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={handleClick}
             className="sort-card-container"
         >
             <div
@@ -53,4 +54,4 @@ function ExpandingCard({ images, subtitle }) {
     );
 }
 
-export default ExpandingCard;
+export default MenuCard;

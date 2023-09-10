@@ -6,7 +6,6 @@ let identityTypes = [
     "author",
     "artist"
 ]
-
 function Buttons (props) {
 
     const [isSlidUp, setIsSlidUp] = useState(false);
