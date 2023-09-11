@@ -2,13 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components",
-    "\\src\\components\\Card",
     "\\src\\components\\Experience",
-    "\\src\\components\\Input",
-    "\\src\\components\\Nav",
-    "\\src\\components\\Route"
+    "\\src\\styles"
   ],
-  "SelectedNode": "\\src\\components\\Card\\ExpandingCard.js",
+  "SelectedNode": "\\src\\styles\\topnavStyles.css",
   "PreviewInSolutionExplorer": false
 }

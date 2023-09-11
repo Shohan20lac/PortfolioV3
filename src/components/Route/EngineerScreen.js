@@ -9,6 +9,8 @@ import {professionalExperiences, academicExperiences } from '../../utilities/Exp
 import { skills   } from '../../utilities/Skills'
 import { projects } from '../../utilities/Projects'
 
+import '../../styles/toggleButtonStyles.css'
+
 const professionalThumbnails = professionalExperiences.map (experience => experience.thumbnailUrl)
 const academicThumbnails     = academicExperiences.map     (experience => experience.thumbnailUrl)
 
@@ -28,103 +30,151 @@ const IdentityHeader = () => (
     </motion.div>
 )
 
+function ToggleButtons ({ clickedCard, toggledButton, handleButtonToggle }) {
+    return (
+        <>
+            {clickedCard !== null &&  
+                <div className="sort-by-container">
+                    <div className="tri-state-toggle">
+                        <button
+                            className={`tri-state-toggle-button ${toggledButton === "Experiences" ? 'active' : ''}`}
+                            onClick={() => handleButtonToggle("Experiences")}
+                        >
+                            Experiences
+                        </button>
+
+                        <button
+                            className={`tri-state-toggle-button ${toggledButton === "Skills" ? 'active' : ''}`}
+                            onClick={() => handleButtonToggle("Skills")}
+                        >
+                            Skills
+                        </button>
+
+                        <button
+                            className={`tri-state-toggle-button ${toggledButton === "Projects" ? 'active' : ''}`}
+                            onClick={() => handleButtonToggle("Projects")}
+                        >
+                            Projects
+                        </button>
+                    </div>
+
+                </div>    
+            }
+        </>
+
+    )
+}
 function EngineerScreen (props) {
 
-    const [cardClicked, setCardClicked] = useState (null);
+    const [clickedCard, setClickedCard] = useState(null);
+    const [toggledButton, setToggledButton] = useState (null);
 
-    const handleClick = (cardName) => {
-        setCardClicked(cardName);
+    const handleButtonToggle = (segmentName) => {
+        setToggledButton(segmentName);
     };
 
-    // Logic for rendering Screens based on Hook value
+    const handleCardClick = (segmentName) => {
+        setToggledButton(segmentName);
+        setClickedCard  (segmentName);
+    };
 
     let screenContent;
 
-            switch (cardClicked) {
-                case ("Experience"): {
-                    screenContent =
+    switch (clickedCard) {
+            case ("Experiences"): {
+                screenContent =
+                    <motion.div
+                        animate={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+
+                        <ToggleButtons
+                            clickedCard        = {clickedCard}
+                            toggledButton      = {toggledButton}
+                            handleButtonToggle = {handleButtonToggle}
+                        />
+
+                        <h3 className="background-text"> Professional Experiences </h3>
+                        <div className="experiences-container">
+                            {
+                                professionalExperiences.map((professionalExperience, index) => (
+                                    <Card
+                                        cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
+                                        cardSubtitle={professionalExperience.duration}
+                                        cardDescription={professionalExperience.intro}
+                                        imageUrl={professionalExperience.thumbnailUrl}
+                                    />
+                                ))
+                            }
+                        </div>
+
+                        <h3 className="background-text"> Academic Experiences </h3>
+                        <div className="experiences-container">
+                            {
+                                academicExperiences.map((academicExperience, index) => (
+                                    <Card
+                                        cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
+                                        cardSubtitle={academicExperience.duration}
+                                        cardDescription={academicExperience.intro}
+                                        imageUrl={academicExperience.thumbnailUrl}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </motion.div>
+                break;
+            }
+            case ("Skills"): {
+                screenContent = <p> Skills Section </p>
+                break;
+            }
+            case ("Projects"): {
+                screenContent = <p> Projects Section </p>
+                break;
+            }
+            default: {
+                screenContent =
+                    <>
+                        <IdentityHeader />
+
                         <motion.div
-                            animate={{ opacity: 1 }}
                             initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
+                            className={`sort-cards-container ${clickedCard !== 'fade-out' ? '' : ''}`}
                         >
 
-                            <h3> Professional Experiences </h3>
-                            <div className="experiences-container">
-                                {
-                                    professionalExperiences.map((professionalExperience, index) => (
-                                        <Card
-                                            cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
-                                            cardSubtitle={professionalExperience.duration}
-                                            cardDescription={professionalExperience.intro}
-                                            imageUrl={professionalExperience.thumbnailUrl}
-                                        />
-                                    ))
-                                }
-                            </div>
+                            <MenuCard
+                                images={professionalThumbnails.concat(academicThumbnails)}
+                                subtitle="Experience"
+                            handleClick={() => handleCardClick("Experiences")}
+                            />
 
-                            <h3> Academic Experiences </h3>
-                            <div className="experiences-container">
-                                {
-                                    academicExperiences.map((academicExperience, index) => (
-                                        <Card
-                                            cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
-                                            cardSubtitle={academicExperience.duration}
-                                            cardDescription={academicExperience.intro}
-                                            imageUrl={academicExperience.thumbnailUrl}
-                                        />
-                                    ))
-                                }
-                            </div>
+                            <MenuCard
+                                images={skills}
+                                subtitle="Skills"
+                                handleClick={() => handleCardClick("Skills")}
+                            />
+
+                            <MenuCard
+                                images={projects}
+                                subtitle="Projects"
+                                handleClick={() => handleCardClick("Projects")}
+                            />
                         </motion.div>
-                    break;
-                }
-                case ("Skills"): {
-                    break;
-                }
-                case ("Projects"): {
-                    break;
-                }
-                default: {
-                    screenContent =
-                        <>
-                            <IdentityHeader />
-
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 1 }}
-                                className={`sort-cards-container ${cardClicked !== 'fade-out' ? '' : ''}`}
-                            >
-
-                                <MenuCard
-                                    images={professionalThumbnails.concat(academicThumbnails)}
-                                    subtitle="Experience"
-                                    handleClick={() => handleClick("Experience")}
-                                />
-
-                                <MenuCard
-                                    images={skills}
-                                    subtitle="Skills"
-                                    handleClick={() => handleClick("Skills")}
-                                />
-
-                                <MenuCard
-                                    images={projects}
-                                    subtitle="Projects"
-                                    handleClick={() => handleClick("Projects")}
-                                />
-                            </motion.div>
-                        </>
-                }
+                    </>
             }
+        }
         
 
     return (
         screenContent
     );
+    // Logic for rendering Screens based on Hook value
+
 }
 
 export default EngineerScreen;
