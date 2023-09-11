@@ -6,6 +6,15 @@ import { motion } from 'framer-motion';
 
 function Card (props) {
     const [flipped, set] = useState(false)
+    const [selectedCardName, setSelectedCardName] = useState(null)
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
 
     const { transform, opacity } = useSpring({
         opacity: flipped ? 1 : 0,
@@ -24,13 +33,16 @@ function Card (props) {
     const item1 = image;
     const item2 = (
         <CardText
-            title={props.cardTitle}
-            subtitle={props.cardSubtitle}
-            description={props.cardDescription}
-            showHeader={true}
-            showSubheader={true}
+            title        = {props.cardTitle}
+            subtitle     = {props.cardSubtitle}
+            description  = {props.cardDescription}
+            showHeader   = {true}
+            showSubheader= {true}
         />
     );
+
+    
+
     
     function handleResize() {
         console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
@@ -56,12 +68,17 @@ function Card (props) {
 
     return (
         <motion.div
-            whileHover = {{ scale: 1.1 }}
-            whileTap   = {{ scale: 0.9 }}
-            className="content-card">
+            className    = "content-card">
+            whileHover   = {{ scale: 1.1 }}
+            whileTap     = {{ scale: 0.9 }}
+            onMouseEnter = {handleMouseEnter}
+            onMouseLeave = {handleMouseLeave}
             <div className="card-content">
                 {item1}
                 {item2}
+                {isHovered && (
+                    <span style={{ color: 'purple', fontWeight: 'bold' }}>Click to see more</span>
+                )}
             </div>
         </motion.div>
     );
