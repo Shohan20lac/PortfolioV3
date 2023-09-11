@@ -35,31 +35,30 @@ function App() {
 
             <div className={`topnav-containerz ${showTopNav ? 'show' : ''}`}>
                 <TopNav
-                    handleButtonClick={handleButtonClick}
-                    currentScreen={currentScreen}
-                    setCurrentScreen={setCurrentScreen}
-                    socials={socials}
-                    modalIndex={modalIndex}
-                    openModal={openModal }
-                    closeModal={closeModal}
+                handleButtonClick = {handleButtonClick}
+                currentScreen     = {currentScreen}
+                setCurrentScreen  = {setCurrentScreen}
+                socials           = {socials}
+                modalIndex        = {modalIndex}
+                openModal         = {openModal }
+                closeModal        = {closeModal}
                 />
             </div>
 
             <Foreground
-                currentScreen     = {currentScreen}
-                setCurrentScreen  = {setCurrentScreen}
-                clickedButtons    = {clickedButton}
-                setClickedButtons={setClickedButton}
-                handleButtonClick = {handleButtonClick}
-                identityTypes     = {identityTypes}
+            currentScreen     = {currentScreen}
+            setCurrentScreen  = {setCurrentScreen}
+            clickedButtons    = {clickedButton}
+            setClickedButtons = {setClickedButton}
+            handleButtonClick = {handleButtonClick}
+            identityTypes     = {identityTypes}
             />
 
             {modalIndex !== null && 
                 <Modal
-                modalOpen={modalIndex}
-                handleClose={closeModal}
-                modalContent={socials[modalIndex]}
-
+                modalOpen    = {modalIndex}
+                handleClose  = {closeModal}
+                modalContent = {socials[modalIndex]}
                 />
             } 
 
