@@ -15,10 +15,10 @@ const Modal = ({ handleClose, modalContent }) => {
 			y:		 "0",
 			opacity: 1,
 			transition: {
-				duration:  0.1,
+				duration:  0.01,
 				type:	   "spring",
-				damping:   100,
-				stiffness: 500,
+				damping:   50,
+				stiffness: 600,
 			}
 		},
 		exit: {
@@ -63,8 +63,6 @@ const Modal = ({ handleClose, modalContent }) => {
 							<i></i>
 						</button>
 					</div>
-
-
 					
 				</div>
 
