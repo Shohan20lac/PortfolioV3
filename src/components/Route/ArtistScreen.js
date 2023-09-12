@@ -4,7 +4,7 @@ function ArtistScreen () {
 
     return (
         <>
-            <p> This is the artist screen </p>
+            <h3 className="background-text"> This section is still under construction. Please check back in a week! </h3>
         </>
     );
 }

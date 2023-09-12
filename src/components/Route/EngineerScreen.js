@@ -64,116 +64,150 @@ function ToggleButtons ({ clickedCard, toggledButton, handleButtonToggle }) {
 
     )
 }
+
+
+const Experiences = ()=> (
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+    >
+        <h3 className="background-text"> Professional Experiences </h3>
+        <div className="experiences-container">
+            {
+                professionalExperiences.map((professionalExperience, index) => (
+                    <Card
+                        cardId=""
+                        cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
+                        cardSubtitle={professionalExperience.duration}
+                        cardDescription={professionalExperience.intro}
+                        imageUrl={professionalExperience.thumbnailUrl}
+                    />
+                ))
+            }
+        </div>
+
+        <h3 className="background-text"> Academic Experiences </h3>
+        <div className="experiences-container">
+            {
+                academicExperiences.map((academicExperience, index) => (
+                    <Card
+                        cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
+                        cardSubtitle={academicExperience.duration}
+                        cardDescription={academicExperience.intro}
+                        imageUrl={academicExperience.thumbnailUrl}
+                    />
+                ))
+            }
+        </div>
+    </motion.div>
+)
+
+const Skills = () => (
+    <motion.div
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+    >
+        <h3 className="background-text"> This subsection is still under construction. Please check back in a week! </h3>
+    </motion.div>
+
+);
+
+const Projects = () => (
+        <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+        >
+        <h3 className="background-text"> This subsection is still under construction. Please check back in a week! </h3>
+        </motion.div>
+);
+
+function Intro (props) {
+    return (
+        <>
+            <IdentityHeader />
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className={`sort-cards-container ${props.clickedCard !== 'fade-out' ? '' : ''}`}
+            >
+
+                <MenuCard
+                    images={professionalThumbnails.concat(academicThumbnails)}
+                    subtitle="Experience"
+                    handleClick={() => props.handleCardClick("Experiences")}
+                />
+
+                <MenuCard
+                    images={skills}
+                    subtitle="Skills"
+                    handleClick={() => props.handleCardClick("Skills")}
+                />
+
+                <MenuCard
+                    images={projects}
+                    subtitle="Projects"
+                    handleClick={() => props.handleCardClick("Projects")}
+                />
+            </motion.div>
+        </>
+    );
+}
+
 function EngineerScreen (props) {
 
     const [clickedCard, setClickedCard] = useState(null);
-    const [toggledButton, setToggledButton] = useState (null);
+    const [toggledButton, setToggledButton] = useState(null);
 
     const handleButtonToggle = (segmentName) => {
         setToggledButton(segmentName);
+        setClickedCard(segmentName);
     };
 
     const handleCardClick = (segmentName) => {
-        setToggledButton(segmentName);
-        setClickedCard  (segmentName);
-    };
+        setToggledButton (segmentName);
+        setClickedCard   (segmentName);
+    };        
 
-    let screenContent;
+    const [screenContent, setScreenContent] =
+        useState (
+            <Intro
+                clickedCard={clickedCard}
+                toggledButton={toggledButton}
+                handleCardClick={handleCardClick}
+            />
+        );
 
-    switch (clickedCard) {
-            case ("Experiences"): {
-                screenContent =
-                    <motion.div
-                        animate={{ opacity: 1 }}
-                        initial={{ opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }}
-                    >
+    useEffect (
+        () => {
+            if      (toggledButton === "Experiences")   { setScreenContent(<Experiences />)}
+            else if (toggledButton === "Skills")   { setScreenContent(<Skills />) }
+            else if (toggledButton === "Projects") { setScreenContent(<Projects />) }
 
-                        <ToggleButtons
-                            clickedCard        = {clickedCard}
-                            toggledButton      = {toggledButton}
-                            handleButtonToggle = {handleButtonToggle}
-                        />
-
-                        <h3 className="background-text"> Professional Experiences </h3>
-                        <div className="experiences-container">
-                            {
-                                professionalExperiences.map((professionalExperience, index) => (
-                                    <Card
-                                        cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
-                                        cardSubtitle={professionalExperience.duration}
-                                        cardDescription={professionalExperience.intro}
-                                        imageUrl={professionalExperience.thumbnailUrl}
-                                    />
-                                ))
-                            }
-                        </div>
-
-                        <h3 className="background-text"> Academic Experiences </h3>
-                        <div className="experiences-container">
-                            {
-                                academicExperiences.map((academicExperience, index) => (
-                                    <Card
-                                        cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
-                                        cardSubtitle={academicExperience.duration}
-                                        cardDescription={academicExperience.intro}
-                                        imageUrl={academicExperience.thumbnailUrl}
-                                    />
-                                ))
-                            }
-                        </div>
-                    </motion.div>
-                break;
-            }
-            case ("Skills"): {
-                screenContent = <p> Skills Section </p>
-                break;
-            }
-            case ("Projects"): {
-                screenContent = <p> Projects Section </p>
-                break;
-            }
-            default: {
-                screenContent =
-                    <>
-                        <IdentityHeader />
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 1 }}
-                            className={`sort-cards-container ${clickedCard !== 'fade-out' ? '' : ''}`}
-                        >
-
-                            <MenuCard
-                                images={professionalThumbnails.concat(academicThumbnails)}
-                                subtitle="Experience"
-                            handleClick={() => handleCardClick("Experiences")}
-                            />
-
-                            <MenuCard
-                                images={skills}
-                                subtitle="Skills"
-                                handleClick={() => handleCardClick("Skills")}
-                            />
-
-                            <MenuCard
-                                images={projects}
-                                subtitle="Projects"
-                                handleClick={() => handleCardClick("Projects")}
-                            />
-                        </motion.div>
-                    </>
-            }
-        }
-        
+        },
+        [toggledButton, clickedCard]
+    )        
 
     return (
-        screenContent
+        <>
+            {clickedCard !== null && 
+                <ToggleButtons
+                    clickedCard={clickedCard}
+                    toggledButton={toggledButton}
+                    handleButtonToggle={handleButtonToggle}
+                />
+            }
+            {screenContent}
+        </>
     );
-    // Logic for rendering Screens based on Hook value
 
 }
 

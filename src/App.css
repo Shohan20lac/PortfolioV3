@@ -543,6 +543,13 @@ p {
     }
 }
 
+.show-more-button-container {
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
 .foreground {
     display: flex;
     flex-direction: column;

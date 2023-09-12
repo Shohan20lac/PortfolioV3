@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components\\Experience",
-    "\\src\\styles"
+    "\\src\\components",
+    "\\src\\components\\Input",
+    "\\src\\components\\Nav",
+    "\\src\\styles",
+    "\\src\\utilities"
   ],
-  "SelectedNode": "\\src\\styles\\topnavStyles.css",
+  "SelectedNode": "\\src\\utilities\\Experiences.js",
   "PreviewInSolutionExplorer": false
 }

@@ -5,6 +5,7 @@ import iub from '../images/iub.png';
 
 export const professionalExperiences = [
     {
+        expId:        "chaldal1",
         institute:    "Chaldal",
         title:        "Software Engineering Intern",
         duration:     "(Spring 2023, 6 months)",
@@ -12,6 +13,7 @@ export const professionalExperiences = [
         thumbnailUrl: chaldal
     },
     {
+        expId:        "altersense1",
         institute:    "AlterSense Ltd.",
         title:        "Machine Learning Engineer",
         duration:     "Summer 2022, (3 months)",
@@ -22,6 +24,7 @@ export const professionalExperiences = [
 
 export const academicExperiences = [
     {
+        expId:        "iub1",
         institute:    "Independent University Bangladesh",
         title:        "BSc in Computer Science & Engineering",
         duration:     "Spring 2018 to Autumn 2022",
@@ -30,6 +33,7 @@ export const academicExperiences = [
 
     },
     {
+        expId:        "iub2",
         institute:    "IUB",
         title:        "Minor in Artificial Intelligence and Robotics",
         duration:     "2022",

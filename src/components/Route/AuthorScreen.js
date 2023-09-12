@@ -4,9 +4,7 @@ function AuthorScreen () {
 
     return (
         <>
-
-            <p> This is the author screen </p>
-
+            <h3 className="background-text"> This section is still under construction. Please check back in a week! </h3>
         </>
     );
 }

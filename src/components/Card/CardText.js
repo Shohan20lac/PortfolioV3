@@ -10,6 +10,21 @@ function CardText (props) {
             {props.showHeader && <h3> {props.title}</h3>}
             {props.showSubheader && <h4> {props.subtitle}</h4>}
             <p>  {props.description}</p>
+
+			<div className="show-more-button-container">
+				<button
+					className="mech-button "
+					onClick={() => {
+					}}
+				>
+					<span>
+						{`Show more`}
+					</span>
+					<i></i>
+				</button>
+
+			</div>
+
         </div>
     );
 }
