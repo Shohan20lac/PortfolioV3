@@ -28,8 +28,6 @@ function App() {
 
     const identityTypes = ["engineer", "author", "artist"];
 
-    console.log (modalIndex)
-
     return (
         <div className="App-header">
 

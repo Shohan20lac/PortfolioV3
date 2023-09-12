@@ -1,0 +1,193 @@
+.sort-cards-container {
+    display: flex; /* Display cards in a row */
+    justify-content: space-between; /* Spacing between cards */
+    align-items: center; /* Spacing between cards */
+    width: 80%; /* Span the whole width of the viewport */
+    gap: 10%;
+    max-width: 90%;
+    min-height: 80%;
+}
+
+.sort-card-label {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.sort-card-container {
+    flex: 1; /* Distribute space evenly among cards */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; /* Set maximum width for each card */
+    margin: 10px;
+}
+
+.sort-card {
+    justify-content: center; /* Center horizontally */
+    align-content: center; /* Center vertically */
+    align-items: center; /* Vertically center the content */
+    justify-content: center;
+    width: 80%;
+    position: relative;
+    padding-top: 100%; /* 1:1 aspect ratio (square) */
+    background-size: cover; /* Stretch the background image to cover the card */
+    background-position: center center; /* Center the background image */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sort-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Stretch the image to cover its container */
+}
+
+.sort-card-label {
+    margin-top: 10px; /* Add spacing between image and label */
+    color: white;
+}
+
+
+.content-card {
+    flex: 1;
+    height: calc(40vw);
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    min-height: min(45vw, 400px);
+    transition: height 0.3s ease;
+    max-width: 50%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-text-container {
+    margin-left: 10px;
+    text-align: left;
+    height: auto;
+    margin-top: 0px;
+}
+
+.card-text-container p {
+    font-size: calc(3vw);
+    text-align: left;
+}
+
+.card-text-container h3 {
+    font-size: calc(4vw);
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+.card-text-container h4 {
+    font-size: calc(2vw);
+    color: dimgrey;
+    text-align: center;
+    margin-top: 0px;
+}
+
+
+@media (min-width: 600px) {
+    .content-card {
+        margin: 2vw;
+        transition: all .1s linear;
+    }
+
+    .card-content {
+        flex-direction: column;
+        transition: all .1s linear;
+    }
+
+    .experiences-container {
+        flex-direction: row;
+        transition: all .25s linear;
+        margin-left: 8vw;
+        margin-right: 8vw;
+    }
+
+    .card-text-container p {
+        font-size: calc(2vw);
+        text-align: left;
+    }
+
+    .card-text-container h3 {
+        font-size: calc(3vw);
+        text-align: center;
+    }
+
+    .card-thumbnail {
+        width: unset;
+        max-height: 50px;
+        border-radius: 250px;
+        transition: all 2s linear;
+    }
+}
+
+.card-thumbnail {
+    width: 60%;
+    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
+    border-radius: 100px;
+    align-self: center;
+    background-color: black;
+    min-width: calc(10vw);
+    min-height: auto;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.thumbnail-container {
+    flex:1;
+    min-height: 20%;
+    align-self: center;
+    justify-self: center;
+}
+
+@media (min-width: 1000px) {
+    .card-text-container p {
+        font-size: 20px;
+    }
+
+    .card-text-container h3 {
+        font-size: 30px;
+    }
+}
+
+.card-thumb-label {
+    font-size: calc(1vw);
+}
+
+.fullwidth {
+    max-width: 90%;
+}
+
+.thumbnails-container {
+    object-fit: contain;
+    gap: 10px;
+}
+
+.subexperience-container {
+    flex:1; 
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.subexperience-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}

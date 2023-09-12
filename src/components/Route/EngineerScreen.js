@@ -9,171 +9,114 @@ import {professionalExperiences, academicExperiences } from '../../utilities/Exp
 import { skills   } from '../../utilities/Skills'
 import { projects } from '../../utilities/Projects'
 
+import ToggleButtons from '../Input/ToggleButtons'
+
+import Engineerintro from '../SectionHeader/EngineerIntro'
+
+import Experiences from '../Engineer/Experiences'
+import Projects from '../Engineer/Projects'
+import Skills from '../Engineer/Skills'
+
 import '../../styles/toggleButtonStyles.css'
+import '../../styles/cardStyles.css'
 
 const professionalThumbnails = professionalExperiences.map (experience => experience.thumbnailUrl)
 const academicThumbnails     = academicExperiences.map     (experience => experience.thumbnailUrl)
 
-const IdentityHeader = () => (
-    <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        className="section-header-container">
-        <p className="background-text"> I am an entry-level full stack engineer with over 1 year of experience in modelling and developing scalable web applications.</p>
 
-        <p className="background-text">
-            Since my recent experiences in software engineering and ML engineering, I am motivated to dedicate
-            myself full-time to the world of Data Science, Software Development and DevOps engineering.
-        </p>
-    </motion.div>
-)
-
-function ToggleButtons ({ clickedCard, toggledButton, handleButtonToggle }) {
+function Intro(props) {
     return (
         <>
-            {clickedCard !== null &&  
-                <div className="sort-by-container">
-                    <div className="tri-state-toggle">
-                        <button
-                            className={`tri-state-toggle-button ${toggledButton === "Experiences" ? 'active' : ''}`}
-                            onClick={() => handleButtonToggle("Experiences")}
-                        >
-                            Experiences
-                        </button>
+            <Engineerintro />
 
-                        <button
-                            className={`tri-state-toggle-button ${toggledButton === "Skills" ? 'active' : ''}`}
-                            onClick={() => handleButtonToggle("Skills")}
-                        >
-                            Skills
-                        </button>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className={`sort-cards-container ${props.clickedCard !== 'fade-out' ? '' : ''}`}
+            >
 
-                        <button
-                            className={`tri-state-toggle-button ${toggledButton === "Projects" ? 'active' : ''}`}
-                            onClick={() => handleButtonToggle("Projects")}
-                        >
-                            Projects
-                        </button>
-                    </div>
+                <MenuCard
+                    images={professionalThumbnails.concat(academicThumbnails)}
+                    subtitle="Experience"
+                    handleClick={() => props.handleCardClick("Experiences")}
+                />
 
-                </div>    
-            }
+                <MenuCard
+                    images={skills}
+                    subtitle="Skills"
+                    handleClick={() => props.handleCardClick("Skills")}
+                />
+
+                <MenuCard
+                    images={projects}
+                    subtitle="Projects"
+                    handleClick={() => props.handleCardClick("Projects")}
+                />
+            </motion.div>
         </>
-
-    )
+    );
 }
+
 function EngineerScreen (props) {
 
     const [clickedCard, setClickedCard] = useState(null);
-    const [toggledButton, setToggledButton] = useState (null);
+    const [toggledButton, setToggledButton] = useState(null);
 
     const handleButtonToggle = (segmentName) => {
         setToggledButton(segmentName);
+        setClickedCard(segmentName);
     };
 
     const handleCardClick = (segmentName) => {
-        setToggledButton(segmentName);
-        setClickedCard  (segmentName);
-    };
+        setToggledButton (segmentName);
+        setClickedCard   (segmentName);
+    };        
 
-    let screenContent;
+    const [screenContent, setScreenContent] =
+        useState (
+            <Intro
+                clickedCard    = {clickedCard}
+                toggledButton  = {toggledButton}
+                handleCardClick= {handleCardClick}
+            />
+        );
 
-    switch (clickedCard) {
-            case ("Experiences"): {
-                screenContent =
-                    <motion.div
-                        animate={{ opacity: 1 }}
-                        initial={{ opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-
-                        <ToggleButtons
-                            clickedCard        = {clickedCard}
-                            toggledButton      = {toggledButton}
-                            handleButtonToggle = {handleButtonToggle}
-                        />
-
-                        <h3 className="background-text"> Professional Experiences </h3>
-                        <div className="experiences-container">
-                            {
-                                professionalExperiences.map((professionalExperience, index) => (
-                                    <Card
-                                        cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
-                                        cardSubtitle={professionalExperience.duration}
-                                        cardDescription={professionalExperience.intro}
-                                        imageUrl={professionalExperience.thumbnailUrl}
-                                    />
-                                ))
-                            }
-                        </div>
-
-                        <h3 className="background-text"> Academic Experiences </h3>
-                        <div className="experiences-container">
-                            {
-                                academicExperiences.map((academicExperience, index) => (
-                                    <Card
-                                        cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
-                                        cardSubtitle={academicExperience.duration}
-                                        cardDescription={academicExperience.intro}
-                                        imageUrl={academicExperience.thumbnailUrl}
-                                    />
-                                ))
-                            }
-                        </div>
-                    </motion.div>
-                break;
+    useEffect (
+        () => {
+            if (toggledButton === "Experiences") {
+                setScreenContent (
+                    <Experiences handleClick={handleCardClick} />
+                )
             }
-            case ("Skills"): {
-                screenContent = <p> Skills Section </p>
-                break;
+            else if (toggledButton === "Skills") {
+                setScreenContent (
+                    <Skills />
+                )
             }
-            case ("Projects"): {
-                screenContent = <p> Projects Section </p>
-                break;
+            else if (toggledButton === "Projects") {
+                setScreenContent (
+                    <Projects />
+                )
             }
-            default: {
-                screenContent =
-                    <>
-                        <IdentityHeader />
 
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 1 }}
-                            className={`sort-cards-container ${clickedCard !== 'fade-out' ? '' : ''}`}
-                        >
-
-                            <MenuCard
-                                images={professionalThumbnails.concat(academicThumbnails)}
-                                subtitle="Experience"
-                            handleClick={() => handleCardClick("Experiences")}
-                            />
-
-                            <MenuCard
-                                images={skills}
-                                subtitle="Skills"
-                                handleClick={() => handleCardClick("Skills")}
-                            />
-
-                            <MenuCard
-                                images={projects}
-                                subtitle="Projects"
-                                handleClick={() => handleCardClick("Projects")}
-                            />
-                        </motion.div>
-                    </>
-            }
-        }
-        
+        },
+        [toggledButton, clickedCard]
+    )        
 
     return (
-        screenContent
+        <>
+            {clickedCard !== null && 
+                <ToggleButtons
+                    clickedCard={clickedCard}
+                    toggledButton={toggledButton}
+                    handleButtonToggle={handleButtonToggle}
+                />
+            }
+            {screenContent}
+        </>
     );
-    // Logic for rendering Screens based on Hook value
 
 }
 

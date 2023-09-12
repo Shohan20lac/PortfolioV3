@@ -168,65 +168,12 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .centered {
     text-align: center;
 }
-.content-card {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
-    height: calc(40vw);
-    width: 100%;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    height: auto;
-    transition: height 0.3s ease;
-}
-
-.card-content {
-    display:flex;
-    flex-direction: row;
-}
-
-.card-text-container {
-    margin-left: 10px;
-    text-align: left;
-    height: auto;
-    margin-top:0px;
-}
-
-.card-text-container p {
-    font-size: calc(3vw);
-    text-align: left;
-}
-
-.card-text-container h3 {
-    font-size: calc(4vw);
-    text-align: left;
-    margin-bottom: 5px;
-    margin-top: 0px;
-}
-
-.card-text-container h4 {
-    font-size: calc(2vw);
-    color: dimgrey;
-    text-align: center;
-    margin-top: 0px;
-}
-
-.card-thumbnail {
-    width: 40%;
-    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
-    border-radius: 10px;
-    align-self:center;
-    background-color: black;
-}
-
 
 .accordion-section {
     cursor: pointer;
@@ -277,39 +224,7 @@ p {
         font-size: calc(2vw);
         transition: all .1s linear;
     }
-    
-    .content-card {
-        margin: 2vw;
-        transition: all .1s linear;
-    }
-    .card-content {
-        flex-direction: column;
-        transition: all .1s linear;
-    }
-
-    .experiences-container {
-        flex-direction: row;
-        transition: all .25s linear;
-        margin-left: 8vw;
-        margin-right: 8vw;
-    }
-
-    .card-text-container p {
-        font-size: calc(2vw);
-        text-align: left;
-    }
-
-    .card-text-container h3 {
-        font-size: calc(3vw);
-        text-align: center;
-    }
-
-    .card-thumbnail {
-        width: unset;
-        max-height: 50px;
-        border-radius: 250px;
-        transition: all 2s linear;
-    }
+   
 }
 
 @media (min-width: 800px) {
@@ -339,54 +254,6 @@ p {
         align-items: center;
         justify-content: center;
     }
-}
-
-
-.sort-cards-container {
-    margin-top: 50px;
-    display: flex; /* Display cards in a row */
-    justify-content: center; /* Spacing between cards */
-    align-items: center; /* Spacing between cards */
-    width: 80%; /* Span the whole width of the viewport */
-    gap: 60px;
-}
-
-.sort-card-container {
-    flex: 1; /* Distribute space evenly among cards */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    max-width: 250px; /* Set maximum width for each card */
-    margin: 10px; 
-}
-
-.sort-card {
-    justify-content: center; /* Center horizontally */
-    align-content: center; /* Center vertically */
-    align-items: center; /* Vertically center the content */
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    padding-top: 100%; /* 1:1 aspect ratio (square) */
-    background-size: cover; /* Stretch the background image to cover the card */
-    background-position: center center; /* Center the background image */
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.sort-card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Stretch the image to cover its container */
-}
-
-.sort-card-label {
-    margin-top: 10px; /* Add spacing between image and label */
-    color:white;
 }
 
 .backdrop {
@@ -543,17 +410,21 @@ p {
     }
 }
 
+.show-more-button-container {
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
 .foreground {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
-
 .section-header-container {
     margin-left: calc(14vw);
     margin-right: calc(14vw);
     margin-bottom: 0px;
 }
-
