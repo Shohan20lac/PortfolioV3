@@ -3,11 +3,8 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Input",
-    "\\src\\components\\Nav",
-    "\\src\\styles",
     "\\src\\utilities"
   ],
-  "SelectedNode": "\\src\\utilities\\Experiences.js",
+  "SelectedNode": "\\src\\components\\Experiences.js",
   "PreviewInSolutionExplorer": false
 }

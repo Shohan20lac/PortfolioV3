@@ -1,6 +1,14 @@
-import chaldal from '../images/chaldal.jpg';
-import altersense from '../images/altersense.png';
-import iub from '../images/iub.png';
+import chaldal    from '../images/chaldal.jpg'
+import altersense from '../images/altersense.png'
+import iub        from '../images/iub.png'
+
+import lambda   from '../images/lambda.png'
+import dotnet   from '../images/dotnet.png'
+import eggshell from '../images/eggshell.png'
+
+import dataasetMgt from '../images/dataset_mgt.jpg'
+import cicd        from '../images/cicd.png'
+import yolopython from '../images/yolopython.png'
 
 
 export const professionalExperiences = [
@@ -10,15 +18,43 @@ export const professionalExperiences = [
         title:        "Software Engineering Intern",
         duration:     "(Spring 2023, 6 months)",
         intro:        "Collaborated with world class fullstack framework developers and experts of functional programming Paradigms. A masterclass in F#/ C# codebases that transpile into React components and .NET Actors.",
-        thumbnailUrl: chaldal
+        thumbnailUrl: chaldal,
+        subExperiences: [
+            {
+                thumbnailUrl: eggshell,
+                title:    "Frontend Development"
+            },
+            {
+                thumbnailUrl: lambda,
+                title: "Functional Programming"
+            },
+            {
+                thumbnailUrl: dotnet,
+                title: "Backend Engineering"
+            }
+        ]
     },
     {
-        expId:        "altersense1",
+        expId:        "altersense",
         institute:    "AlterSense Ltd.",
         title:        "Machine Learning Engineer",
         duration:     "Summer 2022, (3 months)",
         intro:        "Trained and tested state-of-the-art computer vision libraries like yoloV7 and openCV. Integrated those models into web applications. Deployed those models into CI/CD pipelines.",
-        thumbnailUrl: altersense
+        thumbnailUrl: altersense,
+        subExperiences: [
+            {
+                thumbnailUrl: dataasetMgt,
+                title: "Dataset Management"
+            },
+            {
+                thumbnailUrl: yolopython,
+                title: "Computer Vision Engineering"
+            },
+            {
+                thumbnailUrl: cicd,
+                title: "CI/CD Pipelining"
+            }
+        ]
     }
 ]
 

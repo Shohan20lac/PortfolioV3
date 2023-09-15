@@ -1,6 +1,6 @@
 import { React , useState }from 'react';
 import ReactDOM from 'react-dom/client';
-import WelcomeText from './WelcomeText';
+import WelcomeText from './SectionHeader/WelcomeText';
 import EngineerScreen from './Route/EngineerScreen';
 import AuthorScreen from './Route/AuthorScreen';
 import ArtistScreen from './Route/ArtistScreen';

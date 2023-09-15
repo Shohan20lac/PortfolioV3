@@ -1,9 +1,10 @@
 import { motion } from "framer-motion"
-import Backdrop from './Backdrop'
+import Backdrop   from './Backdrop'
 import {useState} from 'react'
 
-const Modal = ({ handleClose, modalContent }) => {
 
+function LinkToSocial
+	({ modalContent, handleClose }) {	
 	const [textCopied, setTextCopied] = useState(false);
 
 	const dropIn = {
@@ -12,17 +13,17 @@ const Modal = ({ handleClose, modalContent }) => {
 			opacity: 0
 		},
 		visible: {
-			y:		 "0",
+			y: "0",
 			opacity: 1,
 			transition: {
-				duration:  0.01,
-				type:	   "spring",
-				damping:   50,
+				duration: 0.01,
+				type: "spring",
+				damping: 50,
 				stiffness: 600,
 			}
 		},
 		exit: {
-			y:	     "100vh",
+			y: "100vh",
 			opacity: 0
 		}
 	}
@@ -31,12 +32,12 @@ const Modal = ({ handleClose, modalContent }) => {
 		<Backdrop onClick={handleClose}>
 
 			<motion.div
-				onClick   = {(e) => e.stopPropagation()}
-				className = "modal orange-gradient"
-				variants  = {dropIn}
-				initial   = "hidden"
-				animate   = "visible"
-				exit      = "exit"
+				onClick={(e) => e.stopPropagation()}
+				className="modal orange-gradient"
+				variants={dropIn}
+				initial="hidden"
+				animate="visible"
+				exit="exit"
 			>
 
 				<div className="row">
@@ -58,21 +59,53 @@ const Modal = ({ handleClose, modalContent }) => {
 							}}
 						>
 							<span>
-								{textCopied ? `Copied to Clipboard` : `Copy to Clipboard`} 
+								{textCopied ? `Copied to Clipboard` : `Copy to Clipboard`}
 							</span>
 							<i></i>
 						</button>
 					</div>
-					
+
 				</div>
 
-				
+
 
 			</motion.div>
-			
+
 
 		</Backdrop>
+
+	);
+}
+
+function ExperienceDetails({ content }) {
+	
+
+	return (
+		<>
 			
+		</>
+	);
+}
+
+const Modal = ({ modalType, handleClose, modalContent }) => {
+
+	let content;
+
+	if (modalType === "Socials") {
+		content = 
+			<LinkToSocial
+			modalContent = {modalContent}
+			handleClose  = {handleClose }
+			/>
+	}
+
+	else {
+		content = 
+			<ExperienceDetails />
+	}
+
+	return (
+		{content}
 	);
 }
 

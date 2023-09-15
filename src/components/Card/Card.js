@@ -1,48 +1,37 @@
 import { React, useEffect, useState } from 'react';
-import CardText from './CardText'
 import { useSpring} from 'react-spring';
 import { motion } from 'framer-motion';
+import ExperienceIntro from './ExperienceIntro';
+import Thumbnails from './Thumbnails'
 
-
+import '../../styles/cardStyles.css'
 function Card(props) {
+
     const [flipped, setFlipped] = useState(false)
-    const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    const [screenSize, setScreenSize] = useState("Desktop");
 
-    useEffect (
-        () => { console.log (flipped) },
-        [flipped]
-    )
+    const [isHovered, setIsHovered] = useState (false);
+    const handleMouseEnter = () => setIsHovered (true)
+    const handleMouseLeave = () => setIsHovered (false)
 
-    const image = (
-        <img className="card-thumbnail" src={props.imageUrl} alt="cse" />
-    )
-    const cardTitle = <h3> {props.cardTitle}       </h3>
-    const cardSubtitle = <h4> {props.cardSubtitle} </h4>
+    const [showMore, setShowMore]       = useState (false);
 
+    const [cardContent, setCardContent] =
+        useState (
+            <ExperienceIntro
+                screenSize={screenSize}
+                title={props.cardTitle}
+                subtitle={props.cardSubtitle}
+                description={props.cardDescription}
+                imageUrl={props.imageUrl }
+                handleMouseEnter={handleMouseEnter}
+                handleMouseLeave={handleMouseLeave}
+                showMore={showMore}
+                setShowMore={setShowMore}
+            />
+        );
 
-    const { transform, opacity } = useSpring({
-        opacity: flipped ? 1 : 0,
-        transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 80 },
-    });
-
-    const item1 = image;
-    const item2 = (
-        <CardText
-            title={props.cardTitle}
-            subtitle={props.cardSubtitle}
-            description={props.cardDescription}
-            showHeader={true}
-            showSubheader={true}
-        />
-    );
 
     const cardVariants = {
         flip: {
@@ -65,43 +54,59 @@ function Card(props) {
 
     
     function handleResize() {
-        console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
+        console.log ('resized to: ', window.innerWidth, 'x', window.innerHeight)
 
-        if (window.innerWidth > 600) {
-            const item1 = (
-                <>
-                    {cardTitle   }
-                    {cardSubtitle}
-                </>
-            );
-            const item2 = (
-                <CardText
-                    description={props.cardDescription}
-                    showHeader={false}
-                />
-            )            
-            console.log('window is wider than 600px. Reordering and re-styling...');
+        if (!showMore) {
+            if (window.innerWidth > 600)
+                setScreenSize ("Desktop");
+            else
+                setScreenSize ("Handheld");
         }
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener ('resize', handleResize)
 
+    useEffect (
+        () => {
+            if (!showMore) {
+                setCardContent (
+                    <ExperienceIntro
+                        screenSize       = { screenSize            }
+                        title            = { props.cardTitle       }
+                        subtitle         = { props.cardSubtitle    }
+                        description      = { props.cardDescription }
+                        imageUrl         = { props.imageUrl        }
+                        handleMouseEnter = { handleMouseEnter      }
+                        handleMouseLeave = { handleMouseLeave      }
+                        showMore         = { showMore              }
+                        setShowMore      = { setShowMore           }
+                    />
+                );
+            }
+            else {
+                setCardContent (
+                    <Thumbnails
+                        openModal={props.openModal}
+                        contentIndex={props.contentIndex}
+                    />
+                )
+            }
+        },
+        [showMore]
+    )
+
+    /*return (cardContent)*/
     return (
         <motion.div
-            className    = "content-card"
+            className    = {`content-card column fullwidth`}
             whileHover   = {{ scale: 1.05 }}
             onMouseEnter = {handleMouseEnter}
             onMouseLeave = {handleMouseLeave}
-            variants     = {cardVariants}
-            animate={flipped ? "flip" : "noFlip"}
-            style={transform}
         >
-            <div className="card-content">
-                {item1}
-                {item2}
-            </div>
+            {cardContent}
         </motion.div>
-    );
+
+    )
 }
 
 export default Card;

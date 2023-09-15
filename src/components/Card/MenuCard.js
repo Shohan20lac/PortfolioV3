@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+import '../../styles/cardStyles.css'
+
 function MenuCard({ images, subtitle, handleClick }) {
     const [imageIndex, setImageIndex] = useState(0);
     const [isHovered, setIsHovered] = useState (false);
