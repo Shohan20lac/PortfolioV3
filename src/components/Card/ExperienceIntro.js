@@ -12,6 +12,7 @@ function Text ({ title, subtitle, description }) {
 }
 
 function ExperienceIntro ({
+    experienceType,
     screenSize,
     title,
     subtitle,
@@ -21,8 +22,6 @@ function ExperienceIntro ({
     handleMouseLeave,
     showMore,
     setShowMore }) {
-
-    console.log("image Url:", imageUrl)
 
     if (screenSize === "Desktop") {
         let topRow = <img className="card-thumbnail" src={imageUrl} alt="cse" />
@@ -34,18 +33,26 @@ function ExperienceIntro ({
                     description={description}
                 />
 
-                <div className="show-more-button-container">
-                    <button
-                        className="mech-button "
-                        onClick={() => setShowMore(!showMore)}
-                    >
-                        <span>
-                            Show more
-                        </span>
-                        <i></i>
-                    </button>
 
-                </div>
+                {
+                    experienceType === "prof"
+                        ?
+                        <div className="show-more-button-container">
+                            <button
+                                className="mech-button "
+                                onClick={() => setShowMore(!showMore)}
+                            >
+                                <span>
+                                    Show more
+                                </span>
+                                <i></i>
+                            </button>
+
+                        </div>
+                        :
+                        <></>
+                }
+                
 
             </div>
 
@@ -69,19 +76,24 @@ function ExperienceIntro ({
                     onClick={() => setShowMore(!showMore)}
                 />
 
-                <div className="show-more-button-container">
-                    <button
-                        className="mech-button "
-                        onClick={() => {
-                        }}
-                    >
-                        <span>
-                            Show more
-                        </span>
-                        <i></i>
-                    </button>
+                {
+                    experienceType === "prof"
+                        ?
+                        <div className="show-more-button-container">
+                            <button
+                                className="mech-button "
+                                onClick={() => setShowMore(!showMore)}
+                            >
+                                <span>
+                                    Show more
+                                </span>
+                                <i></i>
+                            </button>
 
-                </div>
+                        </div>
+                        :
+                        <></>
+                }
 
             </div>
 

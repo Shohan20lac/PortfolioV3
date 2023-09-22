@@ -19,7 +19,7 @@ function ImageContainer (flexDir) {
     )
 }
 
-function SocialsContainer({ modalIndex, openModal, closeModal }) {
+function SocialsContainer({ openModal }) {
 
     return (
         <div className="socials-container">
@@ -29,14 +29,12 @@ function SocialsContainer({ modalIndex, openModal, closeModal }) {
                     key={index}
                 >
                     <img
-                        className = "navbar-icon"
-                        src       = {social.imageUrl}
-                        alt       = {`${social.title}`}
-                        onClick   = {() =>
-                            (modalIndex == null)
-                                ? openModal(index)
-                                : closeModal()
-                        }
+                        className="navbar-icon"
+                        src={social.imageUrl}
+                        alt={`${social.title}`}
+                        onClick={() => {
+                            openModal("soc", index)
+                        }}
                     />
                     <div className ="tooltip">{social.websiteUrl}</div>
                 </div>
@@ -58,15 +56,13 @@ function NameCard (props) {
             />
             <h3 className="navbar-text"> BSc, CSE, Independendent University, Bangladesh</h3>
             <SocialsContainer
-                modalIndex={props.modalIndex}
                 openModal={props.openModal}
-                closeModal={props.closeModal}
             />
         </div>
     );
 }
 
-function TopNav(props) {
+function TopNav (props) {
 
     return (
         <div className="topnav-container">
@@ -77,10 +73,9 @@ function TopNav(props) {
                 currentScreen={props.currentScreen}
                 updateClickedButton={props.handleButtonClick}
                 setCurrentScreen={props.setCurrentScreen}
-                socials={props.socials}
-                modalIndex={props.modalIndex}
                 openModal={props.openModal}
-                closeModal={props.closeModal}
+                setModalContentType={props.setModalContentType}
+                setModalContentIndex={props.setModalContentIndex}
             />
 
         </div>

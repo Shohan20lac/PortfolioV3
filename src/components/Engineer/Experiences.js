@@ -28,6 +28,7 @@ function Experiences (props) {
                 {
                     professionalExperiences.map((professionalExperience, index) => (
                         <Card
+                            experienceType="prof"
                             cardTitle={`${professionalExperience.title} @ ${professionalExperience.institute}`}
                             cardSubtitle={professionalExperience.duration}
                             cardDescription={professionalExperience.intro}
@@ -44,6 +45,7 @@ function Experiences (props) {
                 {
                     academicExperiences.map((academicExperience, index) => (
                         <Card
+                            experienceType= "acad"
                             cardTitle={`${academicExperience.title} @ ${academicExperience.institute}`}
                             cardSubtitle={academicExperience.duration}
                             cardDescription={academicExperience.intro}

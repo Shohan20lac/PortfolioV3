@@ -9,7 +9,7 @@ import fsharp from '../images/fsharp.png';
 import leetcode from '../images/leetcode.png';
 
 
-const socials = [
+export const socials = [
     {
         title: "github",
         imageUrl: github,

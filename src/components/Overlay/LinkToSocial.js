@@ -1,11 +1,13 @@
 import { motion } from "framer-motion"
-import Backdrop   from './Backdrop'
-import {useState} from 'react'
+import { useState } from 'react'
 
-import {socials} from '../../utilities/Socials'
+import { socials } from '../../utilities/Socials'
+
+import { ModalContext } from '../../index.js'
+import Backdrop from './Modal'
 
 function LinkToSocial
-	({ modalContentIndex, handleClose }) {	
+	({ modalContentIndex, handleClose }) {
 	const [textCopied, setTextCopied] = useState(false);
 	const social = socials[modalContentIndex]
 
@@ -31,7 +33,8 @@ function LinkToSocial
 	}
 
 	return (
-		
+
+		<Backdrop >
 			<motion.div
 				onClick={(e) => e.stopPropagation()}
 				className="modal orange-gradient"
@@ -73,46 +76,9 @@ function LinkToSocial
 			</motion.div>
 
 
-	);
-}
-
-function ExperienceDetails({ content }) {
-	
-
-	return (
-		<>
-			
-		</>
-	);
-}
-
-const Modal = ({ handleClose, modalContentIndex }) => {
-
-	let content;
-
-	/*if (modalType === "Socials") {
-		content = 
-			<LinkToSocial
-			modalContent = {modalContent}
-			handleClose  = {handleClose }
-			/>
-	}
-
-	else {
-		content = 
-			<ExperienceDetails />
-	}*/
-
-	content =
-		<LinkToSocial
-			modalContentIndex={modalContentIndex}
-		/>
-
-	return (
-		<Backdrop onClick={handleClose}>
-			{content}
 		</Backdrop>
+
 	);
 }
 
-export default Modal;
+export default LinkToSocial

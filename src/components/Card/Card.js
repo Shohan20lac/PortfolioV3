@@ -20,6 +20,7 @@ function Card(props) {
     const [cardContent, setCardContent] =
         useState (
             <ExperienceIntro
+                experienceType={props.experienceType}
                 screenSize={screenSize}
                 title={props.cardTitle}
                 subtitle={props.cardSubtitle}
@@ -71,7 +72,8 @@ function Card(props) {
             if (!showMore) {
                 setCardContent (
                     <ExperienceIntro
-                        screenSize       = { screenSize            }
+                        experienceType={props.experienceType}
+                        screenSize={screenSize}
                         title            = { props.cardTitle       }
                         subtitle         = { props.cardSubtitle    }
                         description      = { props.cardDescription }
