@@ -12,17 +12,17 @@ import socials from './utilities/Socials'
 
 
 function App() {
-    const [modalContentIndex, setModalContentIndex] = useState (null);
+    const [socialModalIndex, setSocialModalIndex] = useState(null);
+
+    const [modalContentIndex, setModalContentIndex] = useState(null);
     const [modalContentType, setModalContentType  ] = useState(null);
 
-    const openModal = (type, index) => {
-        setModalContentIndex (index);
-        setModalContentType({type});
+    const openSocialModal = (index) => {
+        setSocialModalIndex (index);
     }
+
     const closeModal = () => {
-        setModalContentType(null);
-        setModalContentIndex(null);
-        console.log ("modal content set to null")
+        setSocialModalIndex(null);
     }
 
     const [showTopNav, setShowTopNav]         = useState (false);
@@ -35,25 +35,7 @@ function App() {
 
     const identityTypes = ["engineer", "author", "artist"];
 
-
     const [modalChild, setModalChild] = useState(<p1 className="background-text">Modal Child</p1>)
-
-    useEffect(
-        (modalContentIndex, modalContentType) => {
-
-            console.log("modal content type or index changed")
-            if (modalContentType === "soc") {
-                setModalChild (
-                    <LinkToSocial
-                        modalContentIndex = {modalContentIndex}
-                        handleClose       = {closeModal}
-                    />
-                );
-            }
-
-        },
-        [modalContentIndex, modalContentType]
-    )
 
     return (
         <div className="App-header">
@@ -63,9 +45,7 @@ function App() {
                     handleButtonClick    = {handleButtonClick}
                     currentScreen        = {currentScreen}
                     setCurrentScreen     = {setCurrentScreen}
-                    setModalContentIndex = {modalContentIndex}
-                    setModalContentType  = {modalContentType}
-                    openModal            = {openModal }
+                    openModal            = {openSocialModal }
                     closeModal           = {closeModal}
                 />
             </div>
@@ -79,11 +59,10 @@ function App() {
                 identityTypes     = {identityTypes}
             />
 
-            {modalContentType !== null && 
+            {socialModalIndex !== null &&
                 <SocialModal
-                    handleClose       = {closeModal}
-                    modalContentIndex = {modalContentIndex}
-                    modalContentType  = {setModalContentType}
+                    handleClose={closeModal}
+                    socialModalIndex={socialModalIndex}
                 />
             } 
 

@@ -33,7 +33,8 @@ function SocialsContainer({ openModal }) {
                         src={social.imageUrl}
                         alt={`${social.title}`}
                         onClick={() => {
-                            openModal("soc", index)
+                            console.log ("modal clicked")
+                            openModal(index)
                         }}
                     />
                     <div className ="tooltip">{social.websiteUrl}</div>
@@ -74,8 +75,6 @@ function TopNav (props) {
                 updateClickedButton={props.handleButtonClick}
                 setCurrentScreen={props.setCurrentScreen}
                 openModal={props.openModal}
-                setModalContentType={props.setModalContentType}
-                setModalContentIndex={props.setModalContentIndex}
             />
 
         </div>

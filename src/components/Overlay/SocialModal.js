@@ -5,9 +5,10 @@ import {useState, useEffect} from 'react'
 import {socials} from '../../utilities/Socials'
 
 function LinkToSocial
-	({ modalContentIndex, handleClose }) {	
+	({ contentIndex, handleClose }) {	
 	const [textCopied, setTextCopied] = useState(false);
-	const social = socials[modalContentIndex]
+	const social = socials[contentIndex]
+	const x = 2;
 
 	const dropIn = {
 		hidden: {
@@ -76,10 +77,10 @@ function LinkToSocial
 	);
 }
 
-const SocialModal = ({ handleClose, modalContentIndex }) => {
+const SocialModal = ({ handleClose, socialModalIndex }) => {
 	return (
 		<Backdrop onClick={handleClose}>
-			<LinkToSocial modalContentIndex={modalContentIndex} />
+			<LinkToSocial contentIndex={socialModalIndex} />
 		</Backdrop>
 	);
 }
