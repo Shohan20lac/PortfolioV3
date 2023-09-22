@@ -85,7 +85,7 @@ function EngineerScreen (props) {
     useEffect (
         () => {
             if (toggledButton === "Experiences") {
-                setScreenContent (
+                setScreenContent(
                     <Experiences handleClick={handleCardClick} />
                 )
             }
