@@ -43,12 +43,6 @@ function Intro(props) {
                 />
 
                 <MenuCard
-                    images={skills}
-                    subtitle="Skills"
-                    handleClick={() => props.handleCardClick("Skills")}
-                />
-
-                <MenuCard
                     images={projects}
                     subtitle="Projects"
                     handleClick={() => props.handleCardClick("Projects")}
