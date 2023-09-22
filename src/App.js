@@ -64,7 +64,7 @@ function App() {
                     handleClose={closeModal}
                     socialModalIndex={socialModalIndex}
                 />
-            } 
+            }
 
         </div>
     );

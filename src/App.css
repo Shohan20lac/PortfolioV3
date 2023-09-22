@@ -428,3 +428,14 @@ p {
     margin-right: calc(14vw);
     margin-bottom: 0px;
 }
+
+
+
+.card-header {
+    margin: 0
+}
+.card-subtitle {
+    margin: 0;
+    margin-bottom: 20px;
+    color: gray;
+}

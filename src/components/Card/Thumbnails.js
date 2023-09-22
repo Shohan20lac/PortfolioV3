@@ -24,27 +24,42 @@ const Thumbnail = ({ imageUrl, iconLabel }) => (
 function Thumbnails ({
     openModal,
     contentIndex
-    }) {
+}) {
+
+    let experience = professionalExperiences[contentIndex]
+
+    let containerHeading = `${experience.title} @ ${experience.institute}`
+    let containerSubtitle = experience.duration
+
     return (
-        <motion.div
-            initial    = {{ opacity: 0 }}
-            animate    = {{ opacity: 1 }}
-            exit       = {{ opacity: 0 }}
-            className  = {`thumbnails-container row fullwidth`}
-            transition = {{ duration: 1 }}
-        >
+        
+        <>
+            <h3 className="centered card-header"> {containerHeading} </h3>
+            <h4 className="centered card-subtitle" > {containerSubtitle} </h4>
 
-            {
-                professionalExperiences[contentIndex].subExperiences.map(subExperience =>
-                    <Thumbnail
-                        imageUrl  = {subExperience.thumbnailUrl}
-                        iconLabel = {subExperience.title}
-                    />
-                )
 
-            }
+            <motion.div
+                initial    = {{ opacity: 0 }}
+                animate    = {{ opacity: 1 }}
+                exit       = {{ opacity: 0 }}
+                className  = {`thumbnails-container row fullwidth`}
+                transition = {{ duration: 1 }}
+            >
 
-        </motion.div>
+
+                {
+                    experience.subExperiences.map(subExperience =>
+                        <Thumbnail
+                            imageUrl  = {subExperience.thumbnailUrl}
+                            iconLabel = {subExperience.title}
+                        />
+                    )
+
+                }
+
+            </motion.div>
+        
+        </>
     );
 }
 
