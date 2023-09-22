@@ -15,7 +15,6 @@ import Engineerintro from '../SectionHeader/EngineerIntro'
 
 import Experiences from '../Engineer/Experiences'
 import Projects from '../Engineer/Projects'
-import Skills from '../Engineer/Skills'
 
 import '../../styles/toggleButtonStyles.css'
 import '../../styles/cardStyles.css'
@@ -88,11 +87,6 @@ function EngineerScreen (props) {
             if (toggledButton === "Experiences") {
                 setScreenContent (
                     <Experiences handleClick={handleCardClick} />
-                )
-            }
-            else if (toggledButton === "Skills") {
-                setScreenContent (
-                    <Skills />
                 )
             }
             else if (toggledButton === "Projects") {

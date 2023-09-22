@@ -3,8 +3,12 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\Card",
+    "\\src\\components\\Engineer",
+    "\\src\\components\\Overlay",
+    "\\src\\components\\Route",
     "\\src\\utilities"
   ],
-  "SelectedNode": "\\src\\components\\Experiences.js",
+  "SelectedNode": "\\src\\utilities\\Projects.js",
   "PreviewInSolutionExplorer": false
 }

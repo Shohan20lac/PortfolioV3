@@ -51,12 +51,12 @@ function App() {
             </div>
 
             <Foreground
-                currentScreen     = {currentScreen}
-                setCurrentScreen  = {setCurrentScreen}
-                clickedButtons    = {clickedButton}
-                setClickedButtons = {setClickedButton}
-                handleButtonClick = {handleButtonClick}
-                identityTypes     = {identityTypes}
+                currentScreen={currentScreen}
+                setCurrentScreen={setCurrentScreen}
+                clickedButtons={clickedButton}
+                setClickedButtons={setClickedButton}
+                handleButtonClick={handleButtonClick}
+                identityTypes={identityTypes}
             />
 
             {socialModalIndex !== null &&

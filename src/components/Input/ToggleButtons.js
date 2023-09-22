@@ -12,13 +12,6 @@ function ToggleButtons({ clickedCard, toggledButton, handleButtonToggle }) {
                         </button>
 
                         <button
-                            className={`tri-state-toggle-button ${toggledButton === "Skills" ? 'active' : ''}`}
-                            onClick={() => handleButtonToggle("Skills")}
-                        >
-                            Skills
-                        </button>
-
-                        <button
                             className={`tri-state-toggle-button ${toggledButton === "Projects" ? 'active' : ''}`}
                             onClick={() => handleButtonToggle("Projects")}
                         >
