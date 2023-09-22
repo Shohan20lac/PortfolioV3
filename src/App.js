@@ -6,7 +6,7 @@ import TopNav from './components/Nav/TopNav';
 import Foreground from './components/Foreground';
 import LinkToSocial from './components/Overlay/LinkToSocial';
 
-import Modal from './components/Overlay/Modal';
+import SocialModal from './components/Overlay/SocialModal';
 
 import socials from './utilities/Socials'
 
@@ -80,7 +80,7 @@ function App() {
             />
 
             {modalContentType !== null && 
-                <Modal
+                <SocialModal
                     handleClose       = {closeModal}
                     modalContentIndex = {modalContentIndex}
                     modalContentType  = {setModalContentType}

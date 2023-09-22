@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Backdrop   from './Backdrop'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import {socials} from '../../utilities/Socials'
 
@@ -76,33 +76,12 @@ function LinkToSocial
 	);
 }
 
-const Modal = ({ handleClose, modalContentIndex }) => {
-
-	let content;
-
-	/*if (modalType === "Socials") {
-		content = 
-			<LinkToSocial
-			modalContent = {modalContent}
-			handleClose  = {handleClose }
-			/>
-	}
-
-	else {
-		content = 
-			<ExperienceDetails />
-	}*/
-
-	content =
-		<LinkToSocial
-			modalContentIndex={modalContentIndex}
-		/>
-
+const SocialModal = ({ handleClose, modalContentIndex, modalContentType }) => {
 	return (
 		<Backdrop onClick={handleClose}>
-			{content}
+			<LinkToSocial modalContentIndex={modalContentIndex} />
 		</Backdrop>
 	);
 }
 
-export default Modal;
+export default SocialModal;
