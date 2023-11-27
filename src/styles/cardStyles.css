@@ -46,13 +46,15 @@
     width: 100%;
     height: auto;
     object-fit: cover; /* Stretch the image to cover its container */
+    max-width: 100%; /* Set maximum width to 100% of the container */
+    max-height: 100%; /* Set maximum height to 100% of the container */
 }
+
 
 .sort-card-label {
     margin-top: 10px; /* Add spacing between image and label */
     color: white;
 }
-
 
 .content-card {
     flex: 1;
@@ -65,8 +67,11 @@
     height: auto;
     min-height: min(45vw, 400px);
     transition: height 0.3s ease;
-    max-width: 50%;
+    max-width: 70%; /* Set the maximum width to control expansion */
+    max-height: 500px; /* Set the maximum height to stop growing beyond a certain value */
 }
+
+
 
 .card-content {
     display: flex;
