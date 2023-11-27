@@ -1,5 +1,9 @@
 import chaldal    from '../images/chaldal.jpg'
 import altersense from '../images/altersense.png'
+import jbconnect from '../images/jbconnect.jpg'
+import spring from '../images/spring.png'
+import android from '../images/android.jpeg'
+import reactnative from '../images/reactnative.jpg'
 import iub        from '../images/iub.png'
 
 import lambda   from '../images/lambda.png'
@@ -53,6 +57,28 @@ export const professionalExperiences = [
             {
                 thumbnailUrl: cicd,
                 title: "CI/CD Pipelining"
+            }
+        ]
+    },
+    {
+        expId:        "jbconnect",
+        institute:    "JB Connect Ltd.",
+        title:        "Full Stack Developer(Java, React)",
+        duration:     "November 2023-...",
+        intro:        "Used an enterprise-grade network of backend APIs (Java Spring Boot) over AWS to efficiently sync with fine-tuned mySQL instances. Maintained codebases for device-specific frontends (Java-Kotlin-Android) and also device-independent ones (React Native).",
+        thumbnailUrl: jbconnect,
+        subExperiences: [
+            {
+                thumbnailUrl: spring,
+                title: "Java Spring Boot, MySQL"
+            },
+            {
+                thumbnailUrl: android,
+                title: "Android (Java/Kotlin)"
+            },
+            {
+                thumbnailUrl: reactnative,
+                title: "React Native Frontend"
             }
         ]
     }
