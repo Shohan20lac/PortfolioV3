@@ -23,7 +23,6 @@ function Experiences (props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
         >
-            <h3 className="background-text"> Professional Experiences </h3>
             <div className="experiences-container">
                 {
                     professionalExperiences.map((professionalExperience, index) => (
@@ -40,7 +39,6 @@ function Experiences (props) {
                 }
             </div>
 
-            <h3 className="background-text"> Academic Experiences </h3>
             <div className="experiences-container">
                 {
                     academicExperiences.map((academicExperience, index) => (
