@@ -17,6 +17,28 @@ import yolopython from '../images/yolopython.png'
 
 export const professionalExperiences = [
     {
+        expId:        "jbconnect",
+        institute:    "JB Connect Ltd.",
+        title:        "Full Stack Developer(Java, React)",
+        duration:     "November 2023-...",
+        intro:        "Used an enterprise-grade network of backend APIs (Java Spring Boot) over AWS to efficiently sync with fine-tuned mySQL instances. Maintained codebases for device-specific frontends (Java-Kotlin-Android) and also device-independent ones (React Native).",
+        thumbnailUrl: jbconnect,
+        subExperiences: [
+            {
+                thumbnailUrl: spring,
+                title: "Java Spring Boot, MySQL"
+            },
+            {
+                thumbnailUrl: android,
+                title: "Android (Java/Kotlin)"
+            },
+            {
+                thumbnailUrl: reactnative,
+                title: "React Native Frontend"
+            }
+        ]
+    },
+    {
         expId:        "chaldal1",
         institute:    "Chaldal",
         title:        "Software Engineering Intern",
@@ -60,28 +82,6 @@ export const professionalExperiences = [
             }
         ]
     },
-    {
-        expId:        "jbconnect",
-        institute:    "JB Connect Ltd.",
-        title:        "Full Stack Developer(Java, React)",
-        duration:     "November 2023-...",
-        intro:        "Used an enterprise-grade network of backend APIs (Java Spring Boot) over AWS to efficiently sync with fine-tuned mySQL instances. Maintained codebases for device-specific frontends (Java-Kotlin-Android) and also device-independent ones (React Native).",
-        thumbnailUrl: jbconnect,
-        subExperiences: [
-            {
-                thumbnailUrl: spring,
-                title: "Java Spring Boot, MySQL"
-            },
-            {
-                thumbnailUrl: android,
-                title: "Android (Java/Kotlin)"
-            },
-            {
-                thumbnailUrl: reactnative,
-                title: "React Native Frontend"
-            }
-        ]
-    }
 ]
 
 export const academicExperiences = [
